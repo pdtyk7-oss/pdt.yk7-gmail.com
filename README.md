@@ -42,3 +42,24 @@
 - فعّل HTTPS، وأضف رابط `canonical` في وسم `<head>` لكل صفحة.
 - إن أضفت تحليلات أو إعلانات أو أي خدمة خارجية، حدّث صفحتي الخصوصية والأمان لأنهما تنصان حالياً على عدم وجودها.
 - ميسر قد يطلب منك رابط الشروط وسياسة الاسترجاع والسجل التجاري عند تفعيل الحساب.
+
+## الرفع والمزامنة مع GitHub
+المستودع: https://github.com/pdtyk7-oss/pdt.yk7-gmail.com.git (فارغ حالياً وعام).
+
+**الرفع الأول** (من جهازك، داخل مجلد الموقع):
+```
+git init -b main
+git add -A
+git commit -m "موقع شركة مسار: النسخة الأولى"
+git remote add origin https://github.com/pdtyk7-oss/pdt.yk7-gmail.com.git
+git push -u origin main
+```
+عند الطلب أدخل اسم المستخدم، وكلمة المرور تكون **Personal Access Token** من GitHub (Settings ← Developer settings ← Personal access tokens) بصلاحية `repo` على هذا المستودع فقط. لا تشارك التوكن مع أحد.
+
+**المزامنة:** أي تعديل لاحق:
+```
+git add -A && git commit -m "وصف التعديل" && git push
+```
+**النشر التلقائي:** في Vercel اختر Add New ← Project ← Import من هذا المستودع، وأضف متغيرات البيئة (`MOYASAR_SECRET_KEY` و`SITE_URL`). بعدها كل `git push` ينشر الموقع تلقائياً.
+
+**تنبيه:** المستودع عام، فكل ما فيه يراه الجميع. لا تضع المفتاح السري لميسر في أي ملف، فقد أضفت `.gitignore` يستبعد ملفات `.env`، والمفتاح مكانه إعدادات Vercel فقط.
