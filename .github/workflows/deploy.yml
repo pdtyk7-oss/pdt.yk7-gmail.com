@@ -1,0 +1,36 @@
+name: Deploy
+# يعمل بعد نجاح CI على فرع main. يحتاج 3 أسرار في GitHub: VERCEL_TOKEN و VERCEL_ORG_ID و VERCEL_PROJECT_ID
+# إن لم تضفها يتخطى النشر بهدوء. (بديل أسهل: ربط المستودع بـ Vercel من لوحته فينشر تلقائياً.)
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: التحقق من وجود أسرار النشر
+        id: s
+        run: |
+          if [ -n "$VERCEL_TOKEN" ] && [ -n "$VERCEL_ORG_ID" ] && [ -n "$VERCEL_PROJECT_ID" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "تم تخطي النشر: أسرار Vercel غير مضافة."; fi
+      - if: steps.s.outputs.ok == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - if: steps.s.outputs.ok == 'true'
+        name: نشر إلى Vercel (إنتاج)
+        run: |
+          npx --yes vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+          npx --yes vercel@latest build --prod --token="$VERCEL_TOKEN"
+          npx --yes vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN"
