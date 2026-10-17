@@ -28,7 +28,7 @@
 ### 2) انشر الموقع والدالة (اختر واحداً)
 **أ) Vercel:** ارفع المجلد كمشروع، ثم أضف متغيرات البيئة:
 - `MOYASAR_SECRET_KEY` = المفتاح السري من لوحة ميسر (`sk_test_...` للتجربة)
-- `SITE_URL` = رابط موقعك مثل `https://example.com` (بدون شرطة أخيرة)
+- `SITE_URL` = رابط موقعك `https://www.masarpdt-sa.com` (بدون شرطة أخيرة)
 - اختياري: `VAT_PERCENT` و`INVOICE_EXPIRY_HOURS`
 
 **ب) استضافة PHP:** ارفع المجلد كاملاً. اضبط `MOYASAR_SECRET_KEY` و`SITE_URL` كمتغيرات بيئة، أو اكتبهما في أعلى `create-invoice.php`. لا تضع المفتاح السري في أي ملف JavaScript أو HTML.
