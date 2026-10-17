@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /thanks.html
+Disallow: /booking.html
+Disallow: /en/booking.html
 Disallow: /api/
 
 Sitemap: https://www.masarpdt-sa.com/sitemap.xml

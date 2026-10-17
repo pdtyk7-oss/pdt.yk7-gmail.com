@@ -19,10 +19,14 @@ files.filter(f => f.endsWith('.js') && !f.includes('node_modules')).forEach(f =>
 // 2) صفحات HTML: العنوان والوصف واللغة والبيانات المنظمة والروابط المحلية
 files.filter(f => f.endsWith('.html')).forEach(f => {
   const h = fs.readFileSync(f, 'utf8'), r = rel(f);
-  if (!/<html[^>]+lang="ar"[^>]+dir="rtl"/.test(h)) err(r + ': lang/dir غير صحيحين');
+  const isEn = r.startsWith('en/');
+  const wantAttr = isEn ? /<html[^>]+lang="en"[^>]+dir="ltr"/ : /<html[^>]+lang="ar"[^>]+dir="rtl"/;
+  if (!wantAttr.test(h)) err(r + ': lang/dir غير صحيحين لهذه النسخة');
+  const noindex = /<meta name="robots" content="noindex">/.test(h);
+  if (!noindex && !/hreflang="ar"/.test(h)) err(r + ': hreflang مفقود');
   if (!/<title>[^<]{5,}<\/title>/.test(h)) err(r + ': عنوان ناقص');
   if (!/<meta name="description" content="[^"]{20,}"/.test(h)) err(r + ': وصف ناقص');
-  if (r !== 'thanks.html' && !/rel="canonical" href="https:\/\/[^"]+"/.test(h)) err(r + ': canonical مفقود');
+  if (!/rel="canonical" href="https:\/\/[^"]+"/.test(h)) err(r + ': canonical مفقود');
   [...h.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].forEach(m => {
     try { JSON.parse(m[1]); } catch (e) { err(r + ': JSON-LD غير صالح'); }
   });
@@ -48,17 +52,31 @@ try {
   const TRACKS = new Function(data + '; return TRACKS;')();
   const expect = {};
   TRACKS.forEach(t => t.stages.forEach(s => expect[s.id] = { fee: s.fee, altFee: s.alt ? s.alt.fee : null }));
-  const node = fs.readFileSync(path.join(root, 'api/create-invoice.js'), 'utf8');
-  const apiStages = JSON.parse(node.match(/const STAGES = (\{[\s\S]*?\n\});/)[1]);
-  const php = fs.readFileSync(path.join(root, 'create-invoice.php'), 'utf8');
-  const phpStages = JSON.parse(php.match(/<<<'JSON'\n([\s\S]*?)\nJSON/)[1]);
+  const dataEn = fs.readFileSync(path.join(root, 'assets/data.en.js'), 'utf8');
+  const TRACKS_EN = new Function(dataEn + '; return TRACKS;')();
+  TRACKS_EN.forEach(t => t.stages.forEach(s => {
+    const e = expect[s.id];
+    if (!e || e.fee !== s.fee || e.altFee !== (s.alt ? s.alt.fee : null)) err(`السعر/المعرّف في data.en.js لا يطابق data.js للمرحلة ${s.id}`);
+  }));
+  if (TRACKS_EN.flatMap(t => t.stages).length !== Object.keys(expect).length) err('عدد المراحل في data.en.js يختلف عن data.js');
+  const serverStages = require(path.join(root, 'api/_lib/stages.js'));
   Object.keys(expect).forEach(id => {
-    [['api/create-invoice.js', apiStages], ['create-invoice.php', phpStages]].forEach(([n, S]) => {
-      if (!S[id] || S[id].fee !== expect[id].fee || S[id].altFee !== expect[id].altFee) err(`السعر غير متطابق للمرحلة ${id} في ${n}`);
-    });
+    const row = serverStages[id];
+    if (!row || row.fee !== expect[id].fee || row.altFee !== expect[id].altFee) err(`السعر غير متطابق للمرحلة ${id} في api/_lib/stages.js (شغّل البناء)`);
   });
-  if (Object.keys(apiStages).length !== Object.keys(expect).length) err('عدد المراحل في api يختلف عن data.js');
+  if (Object.keys(serverStages).length !== Object.keys(expect).length) err('عدد المراحل في api/_lib/stages.js يختلف عن data.js');
+
 } catch (e) { err('تعذّر فحص تطابق الأسعار: ' + e.message); }
+
+// 5) تطابق مفاتيح نصوص الواجهة بين العربية والإنجليزية
+try {
+  const cfg = { COMPANY: 'x', COMPANY_EN: 'y' };
+  const loadT = f => new Function('CONFIG', 'fmt', fs.readFileSync(path.join(root, 'assets/' + f), 'utf8') + '; return T;')(cfg, n => n);
+  const keys = (o, pre = '') => Object.entries(o).flatMap(([k, v]) => (v && typeof v === 'object' && !Array.isArray(v)) ? keys(v, pre + k + '.') : [pre + k]);
+  const a = keys(loadT('lang.ar.js')).sort(), e = keys(loadT('lang.en.js')).sort();
+  a.filter(k => !e.includes(k)).forEach(k => err('مفتاح ترجمة مفقود في lang.en.js: ' + k));
+  e.filter(k => !a.includes(k)).forEach(k => err('مفتاح ترجمة مفقود في lang.ar.js: ' + k));
+} catch (e) { err('تعذّر فحص ملفات اللغة: ' + e.message); }
 
 if (errors.length) { console.error('فشلت الفحوص:\n - ' + errors.join('\n - ')); process.exit(1); }
 console.log('كل الفحوص نجحت (' + files.length + ' ملفاً).');

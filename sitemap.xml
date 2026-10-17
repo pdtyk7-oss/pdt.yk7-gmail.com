@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.masarpdt-sa.com/</loc></url>
-  <url><loc>https://www.masarpdt-sa.com/about.html</loc></url>
-  <url><loc>https://www.masarpdt-sa.com/policy.html</loc></url>
-  <url><loc>https://www.masarpdt-sa.com/privacy.html</loc></url>
-  <url><loc>https://www.masarpdt-sa.com/security.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.masarpdt-sa.com/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/index.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/index.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/tracks.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/tracks.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/tracks.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/tracks.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/tracks.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/tracks.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/policy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/policy.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/policy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/policy.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/security.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/security.html"/>
+  </url>
+  <url>
+    <loc>https://www.masarpdt-sa.com/en/security.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.masarpdt-sa.com/security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.masarpdt-sa.com/en/security.html"/>
+  </url>
 </urlset>

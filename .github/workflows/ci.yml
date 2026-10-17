@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: فحوص الموقع (صياغة، صفحات، أسرار، تطابق الأسعار)
+          node-version: 22
+      - name: فحوص الموقع (صياغة، صفحات، أسرار، تطابق الأسعار والترجمة)
         run: node scripts/check.js
+      - name: اختبارات الحجز والدفع
+        run: node --test tests/*.test.js
