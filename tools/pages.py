@@ -312,21 +312,7 @@ def index():
   </div>
 </section>
 
-<section id="tracks" aria-labelledby="tracks-h">
-  <div class="wrap">
-    <h2 id="tracks-h">أربعة مسارات، ولكل مسار مراحل ورسوم معلنة</h2>
-    <p class="sec-sub">اختر المسار الأقرب لوضعك لترى مراحله وما تتضمنه ورسوم كل مرحلة قبل أن تسجّل.</p>
-    <div class="scn-list">
-      <a class="scn" href="tracks.html#startup"><span class="q">المشاريع الناشئة<span class="t">استشارة وتوعية وإشراف على التنفيذ</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#develop"><span class="q">تطوير المشاريع<span class="t">مراجعة وتحليل وتطوير المشروع القائم</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#stalled"><span class="q">المشاريع المتعثرة<span class="t">دراسة المشروع واستنتاج أسباب التعثر</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#realestate"><span class="q">التطوير العقاري<span class="t">استشارات هندسية، تصاميم، مقاولون، مصانع، مستلزمات، اشتراطات وأنظمة</span></span>{CHEV}</a>
-    </div>
-    <div class="cta-row"><a class="btn" href="tracks.html">عرض كل المسارات والرسوم</a></div>
-  </div>
-</section>
-
-<section id="method" aria-labelledby="method-h" style="background:var(--paper2)">
+<section id="method" aria-labelledby="method-h">
   <div class="wrap">
     <h2 id="method-h">نبدأ بفهم احتياجك، ثم نقول لك أيّ نوع من المعلومات بين يديك</h2>
     <p class="sec-sub">نحلل الوضع ونوضح الخيارات، ونميّز دائماً بين أربعة أنواع من المعلومات:</p>

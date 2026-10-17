@@ -93,21 +93,7 @@ def index():
   </div>
 </section>
 
-<section id="tracks" aria-labelledby="tracks-h">
-  <div class="wrap">
-    <h2 id="tracks-h">Four tracks, each with announced stages and fees</h2>
-    <p class="sec-sub">Choose the track closest to your situation to see its stages, what each includes, and the fee of each stage before you register.</p>
-    <div class="scn-list">
-      <a class="scn" href="tracks.html#startup"><span class="q">Emerging Projects<span class="t">Consulting, awareness and oversight of execution</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#develop"><span class="q">Project Development<span class="t">Review, analysis and development of an existing project</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#stalled"><span class="q">Stalled Projects<span class="t">Studying the project and diagnosing the causes of the stall</span></span>{CHEV}</a>
-      <a class="scn" href="tracks.html#realestate"><span class="q">Real Estate Development<span class="t">Engineering consultations, designs, contractors, factories, supplies, requirements and regulations</span></span>{CHEV}</a>
-    </div>
-    <div class="cta-row"><a class="btn" href="tracks.html">View all tracks and fees</a></div>
-  </div>
-</section>
-
-<section id="method" aria-labelledby="method-h" style="background:var(--paper2)">
+<section id="method" aria-labelledby="method-h">
   <div class="wrap">
     <h2 id="method-h">We start by understanding your need, then tell you which kind of information you hold</h2>
     <p class="sec-sub">We analyze the situation and clarify the options, and we always distinguish between four types of information:</p>
