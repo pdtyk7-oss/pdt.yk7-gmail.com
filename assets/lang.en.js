@@ -15,6 +15,7 @@ const T = {
   scopeListH:'What we offer', scopeH:'What real estate development covers', flowH:'How we work',
   stagesH: n => `${n}: stages and fees`,
   startOrder: n => `Start a “${n}” request`,
+  fromFee: m => `From ${m}`,
   payBook:'Pay and book your consultation', askWA:'Request via WhatsApp',
 
   steps:['Track','Stage','Your details','Review and pay'],

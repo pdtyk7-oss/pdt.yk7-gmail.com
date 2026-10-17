@@ -38,7 +38,8 @@ function panelHTML(t, idx){
   </div>`;
 }
 function renderTracks(){
-  $('#tablist').innerHTML = TRACKS.map((t,i)=>`<button class="tab" role="tab" id="tab-${t.id}" aria-controls="tp-${t.id}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-tab="${t.id}">${esc(t.name)}</button>`).join('');
+  const startingFee = t => Math.min(...t.stages.filter(s => s.fee != null).map(s => s.fee));
+  $('#tablist').innerHTML = TRACKS.map((t,i)=>`<button class="tab" role="tab" id="tab-${t.id}" aria-controls="tp-${t.id}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-tab="${t.id}"><strong>${esc(t.name)}</strong><span class="tab-tag">${esc(t.tag)}</span><span class="tab-from">${T.fromFee(T.money(startingFee(t)))}</span></button>`).join('');
   $('#tabpanels').innerHTML = TRACKS.map(panelHTML).join('');
   const tabs = $$('.tab');
   const show = id => {
@@ -49,7 +50,10 @@ function renderTracks(){
   fromHash(); window.addEventListener('hashchange', fromHash);
   const rtl = T.dir==='rtl';
   tabs.forEach((b,i)=>{
-    b.addEventListener('click',()=>show(b.dataset.tab));
+    b.addEventListener('click',()=>{
+      show(b.dataset.tab);
+      $('#tabpanels').scrollIntoView({behavior:'smooth', block:'start'});   // the cards stay on top, the details open below
+    });
     b.addEventListener('keydown',e=>{
       let n=null;
       const next = rtl ? 'ArrowLeft' : 'ArrowRight', prev = rtl ? 'ArrowRight' : 'ArrowLeft';
