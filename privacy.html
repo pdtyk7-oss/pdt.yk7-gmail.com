@@ -22,11 +22,6 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-<filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="3.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="rough-s" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>
-</svg>
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="top wrap">
   <div class="top-row">
@@ -48,12 +43,12 @@
     </div>
   </div>
   <nav class="nav" aria-label="التنقل الرئيسي">
-    <a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M3 11 L12 3 L21 11 M5 10 V20 H19 V10 M10 20 V14 H14 V20"/></svg><span>الرئيسية</span></a>
-    <a href="about.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 11 V17"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.6" r=".6"/></svg><span>من نحن</span></a>
-    <a href="tracks.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 3 V21 M12 5 H19 L21 7.5 L19 10 H12 M12 12 H5 L3 14.5 L5 17 H12"/></svg><span>المسارات والرسوم</span></a>
-    <a href="policy.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19 M9 13 H16 M9 17 H14"/></svg><span>سياستنا</span></a>
-    <a href="privacy.html" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M6 11 H18 V21 H6 Z M8 11 V8 A4 4 0 0 1 16 8 V11 M12 15 V17.5"/></svg><span>الخصوصية</span></a>
-    <a href="security.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 3 L19 6 V12 C19 16.5 16 19.5 12 21 C8 19.5 5 16.5 5 12 V6 Z M9 12 L11.5 14.5 L15.5 9.5"/></svg><span>الأمان</span></a>
+    <a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 L12 3 L21 11 M5 10 V20 H19 V10 M10 20 V14 H14 V20"/></svg><span>الرئيسية</span></a>
+    <a href="about.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11 V17"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.6" r=".6"/></svg><span>من نحن</span></a>
+    <a href="tracks.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H19 L21 7.5 L19 10 H12 M12 12 H5 L3 14.5 L5 17 H12"/></svg><span>المسارات والرسوم</span></a>
+    <a href="policy.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19 M9 13 H16 M9 17 H14"/></svg><span>سياستنا</span></a>
+    <a href="privacy.html" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11 H18 V21 H6 Z M8 11 V8 A4 4 0 0 1 16 8 V11 M12 15 V17.5"/></svg><span>الخصوصية</span></a>
+    <a href="security.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V12 C19 16.5 16 19.5 12 21 C8 19.5 5 16.5 5 12 V6 Z M9 12 L11.5 14.5 L15.5 9.5"/></svg><span>الأمان</span></a>
   </nav>
 </header>
 <main id="main">
@@ -63,11 +58,11 @@
   <p>نجمع أقل قدر ممكن من البيانات، ولا نخزّن بيانات بطاقتك أبداً.</p>
 </div>
 <div class="wrap doc">
-  <aside class="toc sketch" aria-label="محتويات الصفحة"><b>في هذه الصفحة</b><a href="#intro">مقدمة</a><a href="#collect">البيانات التي نتلقاها</a><a href="#use">كيف نستخدم بياناتك</a><a href="#store">هل يخزّن الموقع بياناتي؟</a><a href="#share">مع من نشارك بياناتك</a><a href="#cookies">ملفات تعريف الارتباط والتتبع</a><a href="#rights">حقوقك</a><a href="#minors">القاصرون</a><a href="#changes">التعديلات</a></aside>
+  <aside class="toc frame" aria-label="محتويات الصفحة"><b>في هذه الصفحة</b><a href="#intro">مقدمة</a><a href="#collect">البيانات التي نتلقاها</a><a href="#use">كيف نستخدم بياناتك</a><a href="#store">هل يخزّن الموقع بياناتي؟</a><a href="#share">مع من نشارك بياناتك</a><a href="#cookies">ملفات تعريف الارتباط والتتبع</a><a href="#rights">حقوقك</a><a href="#minors">القاصرون</a><a href="#changes">التعديلات</a></aside>
   <article class="article"><h2 id="intro">مقدمة</h2><p>تشرح هذه الصفحة كيف تتعامل مسار المشاريع والتطوير APT («نحن») مع بياناتك عند استخدامك هذا الموقع، ومقرنا في الدمام، المنطقة الشرقية، المملكة العربية السعودية. نلتزم بنظام حماية البيانات الشخصية في المملكة العربية السعودية، ونحرص على جمع أقل قدر ممكن من البيانات.</p><h2 id="collect">البيانات التي نتلقاها</h2><p>عند تعبئة نموذج الطلب تُدخل:</p>
 <ul><li>الاسم الكامل ورقم الجوال (إلزاميان).</li><li>البريد الإلكتروني والمدينة ونطاق رأس المال (اختيارية).</li><li>نبذة مختصرة عن فكرتك أو مشروعك.</li><li>عند حجز الموعد: بريدك الإلكتروني (اختياري) وملاحظاتك للجلسة.</li></ul>
 <p>إن اخترت التواصل عبر واتساب، فإن ما ترسله إلينا هناك هو ما تكتبه أنت.</p>
-<div class="callout sketch soft"><b>بيانات بطاقتك</b>لا نطلبها ولا نراها ولا نخزّنها. تُدخل بيانات الدفع في صفحة الفاتورة المستضافة لدى ميسر وحدها.</div><h2 id="use">كيف نستخدم بياناتك</h2><ul><li>إنشاء فاتورة الدفع الخاصة بطلبك، وتظهر فيها بياناتك ونوع الخدمة والمبلغ.</li><li>حجز موعد الاستشارة وإرسال رابط اجتماع Google Meet إليك.</li><li>التواصل معك لتحديد نطاق العمل.</li><li>تقديم الخدمة المتفق عليها، والمحاسبة والمطابقة المالية.</li></ul>
+<div class="callout frame soft"><b>بيانات بطاقتك</b>لا نطلبها ولا نراها ولا نخزّنها. تُدخل بيانات الدفع في صفحة الفاتورة المستضافة لدى ميسر وحدها.</div><h2 id="use">كيف نستخدم بياناتك</h2><ul><li>إنشاء فاتورة الدفع الخاصة بطلبك، وتظهر فيها بياناتك ونوع الخدمة والمبلغ.</li><li>حجز موعد الاستشارة وإرسال رابط اجتماع Google Meet إليك.</li><li>التواصل معك لتحديد نطاق العمل.</li><li>تقديم الخدمة المتفق عليها، والمحاسبة والمطابقة المالية.</li></ul>
 <p>لا نستخدم بياناتك للتسويق لجهات أخرى، ولا نبيعها.</p><h2 id="store">هل يخزّن الموقع بياناتي؟</h2><p>لا يحتفظ هذا الموقع بقاعدة بيانات للطلبات، ولا يحفظ ما تدخله في متصفحك بعد إغلاق الصفحة. عند الضغط على زر الدفع تُرسل بياناتك مرة واحدة إلى خادم الموقع لإنشاء الفاتورة لدى ميسر، ثم تنتقل إلى صفحة الفاتورة. لا نسجّل بياناتك في سجلات الخادم.</p>
 <p>تبقى بيانات الفاتورة (ومنها بيانات الاتصال ونبذتك المختصرة) محفوظة ضمن سجلات الفاتورة في حسابنا لدى ميسر، لأغراض المحاسبة والمطابقة وخدمتك.</p>
 <p>وعند حجز الموعد يُنشأ حدث في تقويم Google الخاص بنا يحوي اسمك وجوالك والخدمة وملاحظاتك، ليعرف فريقنا موعد الجلسة. ولا نحتفظ بنسخة أخرى من هذه البيانات.</p><h2 id="share">مع من نشارك بياناتك</h2><ul>

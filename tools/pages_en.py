@@ -2,7 +2,7 @@ import json, os
 from pages import (ROOT, SITE, CO_EN, ADDR_EN, WA_ICON, head, header, footer, tail, doc_page,
                    hero_svg)
 
-CHEV = '<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M36 12 C26 11 14 12 5 12 M13 4 C10 8 8 10 5 12 C8 14 10 16 13 20"/></svg>'
+CHEV = '<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M36 12 H5 M13 4 L5 12 L13 20"/></svg>'
 
 ORG_EN = {
   "@context": "https://schema.org", "@type": "ProfessionalService",
@@ -37,7 +37,7 @@ def index():
            ("realestate", "I want to build or develop a property and I fear mistakes and unnecessary costs", "Real Estate Development")]
     scn_html = ''.join(f'<button class="scn" data-pick="{k}" type="button"><span class="q">{q}<span class="t">{t}</span></span>{CHEV}</button>' for k, q, t in scn)
     pin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22 C7 16 5 13 5 10 A7 7 0 0 1 19 10 C19 13 17 16 12 22 Z" fill="none" stroke="#1A2547" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="#CF3A2B"/></svg>'
-    arrow = '<svg viewBox="0 0 28 36" aria-hidden="true"><path d="M20 34 C10 28 8 16 14 5 M6 12 L14 4 L21 11"/></svg>'
+    arrow = '<svg viewBox="0 0 28 36" aria-hidden="true"><path d="M14 35 V6 M6 13 L14 5 L22 13"/></svg>'
     svg = hero_svg('en')
     body = head(f'{CO_EN} | Consulting for emerging and stalled projects and real estate development in Dammam',
                 'Consulting and guidance with field experience for emerging projects, stalled projects, project development and real estate development, from Dammam to all of Saudi Arabia. Live online sessions and payment by Moyasar invoice.',
@@ -72,7 +72,7 @@ def index():
     <p class="sec-sub">“{CO_EN}” is a guidance and awareness body. Any execution service is carried out by an independent specialized party, under our supervision and follow-up as per the signed agreement.</p>
     <div class="role-grid">
       <span class="stamp-big" aria-hidden="true">We supervise, we don’t execute</span>
-      <div class="panel do sketch">
+      <div class="panel do frame">
         <h3>What we do</h3>
         <ul>
           <li>We understand your need and analyze your situation and capabilities.</li>
@@ -81,7 +81,7 @@ def index():
           <li>We supervise and follow up on the executing party as per the signed agreement.</li>
         </ul>
       </div>
-      <div class="panel dont sketch red">
+      <div class="panel dont frame red">
         <h3>What we don’t do</h3>
         <ul>
           <li>We do not carry out the work ourselves, ever.</li>
@@ -98,10 +98,10 @@ def index():
     <h2 id="method-h">We start by understanding your need, then tell you which kind of information you hold</h2>
     <p class="sec-sub">We analyze the situation and clarify the options, and we always distinguish between four types of information:</p>
     <div class="kinds">
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="25" cy="25" r="15" transform="translate(3 3)"/><circle cx="24" cy="24" r="15"/><path d="M35 35 L50 50"/></svg><b>Information that needs verification</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><path class="mk" d="M8 48 V10 L46 48 Z" transform="translate(3 3)"/><path d="M8 48 V10 L46 48 Z M8 20 H14 M8 30 H16 M8 40 H14 M20 48 V42 M30 48 V40 M40 48 V44"/></svg><b>Technical or engineering information</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="13" cy="39" r="8" transform="translate(3 3)"/><path d="M28 8 V48 M16 48 H40 M10 16 H46 M10 16 L4 32 H18 Z M46 16 L40 32 H52 Z"/></svg><b>Regulatory or legal information</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="28" cy="28" r="19" transform="translate(3 3)"/><circle cx="28" cy="28" r="19"/><path d="M28 16 V40 M22 21 C22 17 34 17 34 22 C34 27 22 28 22 33 C22 38 34 38 34 34"/></svg><b>A commercial recommendation</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="25" cy="25" r="15" transform="translate(3 3)"/><circle cx="24" cy="24" r="15"/><path d="M35 35 L50 50"/></svg><b>Information that needs verification</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><path class="mk" d="M8 48 V10 L46 48 Z" transform="translate(3 3)"/><path d="M8 48 V10 L46 48 Z M8 20 H14 M8 30 H16 M8 40 H14 M20 48 V42 M30 48 V40 M40 48 V44"/></svg><b>Technical or engineering information</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="13" cy="39" r="8" transform="translate(3 3)"/><path d="M28 8 V48 M16 48 H40 M10 16 H46 M10 16 L4 32 H18 Z M46 16 L40 32 H52 Z"/></svg><b>Regulatory or legal information</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="28" cy="28" r="19" transform="translate(3 3)"/><circle cx="28" cy="28" r="19"/><path d="M28 16 V40 M22 21 C22 17 34 17 34 22 C34 27 22 28 22 33 C22 38 34 38 34 34"/></svg><b>A commercial recommendation</b></div>
     </div>
     <p class="after">This way you know the nature of the information you rely on before you make your future decisions.</p>
   </div>
@@ -118,7 +118,7 @@ def index():
   <div class="wrap">
     <h2 id="start-h">Start your request in four steps</h2>
     <p class="sec-sub">Choose the track and the stage, enter your details, then we take you to an official invoice on the approved Moyasar page where you pay. If the stage is “as per agreement”, we send your request via WhatsApp and contact you to define the details.</p>
-    <div class="form-sheet sketch" id="wz">
+    <div class="form-sheet frame" id="wz">
       <ol class="prog" id="prog" aria-label="Request steps"></ol>
       <div id="wz-body" aria-live="polite"></div>
     </div>
@@ -137,7 +137,7 @@ def index():
 
 # ============================ About ============================
 def about():
-    sea = '<svg viewBox="0 0 84 68" aria-hidden="true" filter="url(#rough)"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 50 C14 44 22 56 32 50 S50 44 60 50 S74 56 80 50"/><path class="sea" d="M4 60 C14 54 22 66 32 60 S50 54 60 60 S74 66 80 60"/></svg>'
+    sea = '<svg viewBox="0 0 84 68" aria-hidden="true"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 52 H80"/><path class="sea" d="M14 60 H70"/></svg>'
     secs = [
      ('who', 'About us', f'''<p>{CO_EN} is based in Dammam, in the Eastern Province of Saudi Arabia. It is a platform that aims to contribute consulting, experience and awareness guidance to a segment of the community, drawing on accumulated practical and field experience in several fields.</p>
 <p>We help individuals and owners of emerging projects, develop existing and stalled projects, and accompany real estate developers, so that we see the road more clearly before starting and know the right path in a practical and simple way.</p>
@@ -152,7 +152,7 @@ def about():
 </ul>'''),
      ('how', 'How we work', '''<p>We start by understanding the need, then analyze the situation and clarify the options. Throughout, we distinguish between four types of information: information that needs verification, technical or engineering information, regulatory or legal information, and a commercial recommendation. This way the client knows the nature of the information they rely on before making their decisions.</p>
 <p>We also recognize that the aim is not merely to provide a piece of information or an idea, but to help the client avoid mistakes and reach the right path so that they make a better decision.</p>'''),
-     ('limits', 'The limits of our role', f'''<div class="callout sketch red"><b>We supervise, we don’t execute</b>The task of “{CO_EN}” is limited to awareness and clarifying the right and sound path to avoid potential risks, and supervision and follow-up as per the signed agreement. We do not carry out the work ourselves, ever. Any execution service is through the competent independent party, under our supervision and follow-up as per the agreement.</div>
+     ('limits', 'The limits of our role', f'''<div class="callout frame red"><b>We supervise, we don’t execute</b>The task of “{CO_EN}” is limited to awareness and clarifying the right and sound path to avoid potential risks, and supervision and follow-up as per the signed agreement. We do not carry out the work ourselves, ever. Any execution service is through the competent independent party, under our supervision and follow-up as per the agreement.</div>
 <p>We do not replace the engineering office and we do not practice licensed engineering work in its place. Professional service and consulting offices and the competent licensed bodies are independent specialized executing parties, and we guide the client to the suitable choice among them.</p>'''),
      ('mission', 'Our message and purpose', '''<p>Experience, once turned into knowledge that others benefit from, becomes value. We aim to pass on experience in a practical and simple way, and to help members of the community and project owners see the road more clearly before starting, during development, and when facing a stall.</p>'''),
      ('contact', 'Contact us', f'''<p>Address: {ADDR_EN}.</p><ul data-contact></ul><p><span data-legal></span></p>
@@ -168,7 +168,7 @@ def privacy():
      ('collect', 'The data we receive', '''<p>When you fill in the request form you enter:</p>
 <ul><li>Full name and mobile number (required).</li><li>Email, city and a capital range (optional).</li><li>A short summary of your idea or project.</li><li>When booking: your email (optional) and your notes for the session.</li></ul>
 <p>If you choose to contact us via WhatsApp, what you send us there is what you write.</p>
-<div class="callout sketch soft"><b>Your card details</b>We do not ask for them, see them or store them. You enter payment details only on the invoice page hosted by Moyasar.</div>'''),
+<div class="callout frame soft"><b>Your card details</b>We do not ask for them, see them or store them. You enter payment details only on the invoice page hosted by Moyasar.</div>'''),
      ('use', 'How we use your data', '''<ul><li>Creating the payment invoice for your request, which shows your details, the service and the amount.</li><li>Booking your consultation and sending you the Google Meet link.</li><li>Contacting you to set the scope of work.</li><li>Providing the agreed service, and accounting and financial reconciliation.</li></ul>
 <p>We do not use your data to market for other parties, and we do not sell it.</p>'''),
      ('store', 'Does the website store my data?', '''<p>This website does not keep a database of requests, and it does not save what you enter in your browser after you close the page. When you press the payment button, your data is sent once to the website’s server to create the invoice at Moyasar, and then you move to the invoice page. We do not record your data in server logs.</p>
@@ -215,7 +215,7 @@ def security():
 def policy():
     secs = [
      ('nature', 'The nature of our services', f'''<p>“{CO_EN}” is an awareness, guidance, supervision and follow-up body. We provide consulting and awareness based on our practical and field experience, and we guide the client to the most suitable path so that they can make their decision.</p>
-<div class="callout sketch red"><b>We supervise, we don’t execute</b>We do not carry out the work ourselves, we do not replace the engineering office, and we do not practice licensed engineering work in its place. Any execution service is carried out through an independent competent party, under our supervision and follow-up as per the signed agreement.</div>
+<div class="callout frame red"><b>We supervise, we don’t execute</b>We do not carry out the work ourselves, we do not replace the engineering office, and we do not practice licensed engineering work in its place. Any execution service is carried out through an independent competent party, under our supervision and follow-up as per the signed agreement.</div>
 <p>In real estate development, some aspects involve governmental, engineering, technical, regulatory or legal matters that require the opinion or approval of a competent body. We therefore explain to the client the nature of each piece of information or recommendation, and use specialists and licensed bodies when needed.</p>'''),
      ('info', 'The types of information we provide', '''<p>We distinguish for the client between information that needs verification, technical or engineering information, regulatory or legal information, and a commercial recommendation. Our opinion on technical, regulatory or legal matters does not replace the opinion of the competent licensed body.</p>'''),
      ('fees', 'Fees and stages', '''<p>Each track has defined stages, and the fee of each stage is announced on the <a href="tracks.html">tracks page</a> before registration. Some stages have fees set “as per the signed agreement” or “as per the signed contract”; these are not paid on the site but after we get in touch and define the scope of work.</p>
@@ -242,7 +242,7 @@ def booking():
 </div>
 <section class="start" aria-label="Consultation booking" style="padding-top:1.5rem">
   <div class="wrap">
-    <div class="form-sheet sketch" id="bk"><div id="bk-body" aria-live="polite"></div></div>
+    <div class="form-sheet frame" id="bk"><div id="bk-body" aria-live="polite"></div></div>
   </div>
 </section>
 """ + footer('en') + tail('<script src="../assets/booking.js"></script>\n', 'en')

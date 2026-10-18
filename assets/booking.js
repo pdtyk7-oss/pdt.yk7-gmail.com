@@ -52,7 +52,7 @@
           <label class="f full" for="bk-notes">${T.bk.notes}<span class="o">(${T.optional})</span><textarea id="bk-notes">${esc(state.notes)}</textarea></label>
         </div>
         <p class="hint" style="margin-top:.5rem">${T.bk.emailHint}</p>
-        <p class="err" role="alert" style="${message ? '' : 'display:none;'}color:var(--red-d);font:700 .95rem var(--f-hand)">${message}</p>
+        <p class="err" role="alert" style="${message ? '' : 'display:none;'}color:var(--red-d);font:700 .95rem var(--f-body)">${message}</p>
         <div class="wz-nav"><span></span><button class="btn" type="button" data-act="confirm" ${state.slot ? '' : 'disabled'}>${T.bk.confirm}</button></div>`;
     },
 
@@ -60,7 +60,7 @@
       const meet = safeMeet(booking.meetUrl);
       const when = whenLabel(booking.start);
       return `<h3 id="bk-h2" tabindex="-1">${T.bk.doneTitle}</h3>
-        <dl class="sum sketch"><div><dt>${T.bk.whenLabel}</dt><dd>${esc(when)}</dd></div><div><dt>${T.bk.orderLabel}</dt><dd dir="ltr">${esc(ref)}</dd></div></dl>
+        <dl class="sum frame"><div><dt>${T.bk.whenLabel}</dt><dd>${esc(when)}</dd></div><div><dt>${T.bk.orderLabel}</dt><dd dir="ltr">${esc(ref)}</dd></div></dl>
         ${emailed ? `<p class="hint" style="margin-top:.8rem">${T.bk.emailed}</p>` : ''}
         <p class="hint" style="margin-top:.8rem">${T.bk.keepLink}</p>
         <div class="cta-row">

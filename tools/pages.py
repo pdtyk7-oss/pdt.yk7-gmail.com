@@ -7,12 +7,6 @@ ADDR = 'الدمام، المنطقة الشرقية، المملكة العرب
 SITE = 'https://www.masarpdt-sa.com'
 UPDATED = 'أكتوبر 2026'
 
-DEFS = '''<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-<filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="3.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="rough-s" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>
-</svg>'''
-
 WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/></svg>'
 
 CO_EN = 'Masar Projects and Development APT'
@@ -31,7 +25,7 @@ def emblem(label):
 </svg>'''
 
 def ico(d, extra=''):
-    return f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="{d}"/>{extra}</svg>'
+    return f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{d}"/>{extra}</svg>'
 
 ICONS = {
  'home': ico('M3 11 L12 3 L21 11 M5 10 V20 H19 V10 M10 20 V14 H14 V20'),
@@ -76,7 +70,6 @@ def head(title, desc, jsonld=None, path=None, noindex=False, lang='ar'):
 <link rel="stylesheet" href="{P}assets/style.css">
 {ld}</head>
 <body>
-{DEFS}
 <a class="skip" href="#main">{skip}</a>
 """
 
@@ -201,7 +194,7 @@ def hero_svg(lang='ar'):
         texts.append(f'<text class="lab" style="animation-delay:{d}s" x="{x}" y="{y}" text-anchor="{an}">{lab}</text>')
     g_open = '<g transform="translate(560 0) scale(-1 1)">' if mirror else '<g>'
     return f"""<svg class="pathfig" direction="ltr" viewBox="0 0 560 495" role="img" aria-label="{H['aria']}">
-      {g_open}<g filter="url(#rough)">
+      {g_open}<g>
         <path class="ln" d="M20 452 C120 444 240 458 360 448 S500 454 545 446"/>
         <path class="ln trail" d="{HERO_P}"/>
         <path class="pen" pathLength="1" d="{HERO_P}"/>
@@ -244,7 +237,7 @@ FAQ = [
 FAQ_LD = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
   {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 
-CHEV = '<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M36 12 C26 11 14 12 5 12 M13 4 C10 8 8 10 5 12 C8 14 10 16 13 20"/></svg>'
+CHEV = '<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M36 12 H5 M13 4 L5 12 L13 20"/></svg>'
 
 # ============================ الرئيسية ============================
 def index():
@@ -256,7 +249,7 @@ def index():
     scn_html = ''.join(f'<button class="scn" data-pick="{k}" type="button"><span class="q">{q}<span class="t">{t}</span></span>{CHEV}</button>' for k, q, t in scn)
     svg = hero_svg('ar')
     pin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22 C7 16 5 13 5 10 A7 7 0 0 1 19 10 C19 13 17 16 12 22 Z" fill="none" stroke="#1A2547" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="#CF3A2B"/></svg>'
-    arrow = '<svg viewBox="0 0 28 36" aria-hidden="true"><path d="M20 34 C10 28 8 16 14 5 M6 12 L14 4 L21 11"/></svg>'
+    arrow = '<svg viewBox="0 0 28 36" aria-hidden="true"><path d="M14 35 V6 M6 13 L14 5 L22 13"/></svg>'
     body = head(f'{CO} | استشارات المشاريع الناشئة والمتعثرة والتطوير العقاري في الدمام',
                 'استشارات وتوعية إرشادية بخبرة ميدانية للمشاريع الناشئة والمتعثرة وتطوير المشاريع والتطوير العقاري، من الدمام لكل المملكة. بث مباشر أونلاين وفاتورة دفع عبر ميسر.',
                 [ORG, FAQ_LD], path='') + header('home', 'ar', 'index.html') + f'''
@@ -290,7 +283,7 @@ def index():
     <p class="sec-sub">«{CO}» جهة إرشاد وتوعية. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</p>
     <div class="role-grid">
       <span class="stamp-big" aria-hidden="true">نُشرف ولا ننفّذ</span>
-      <div class="panel do sketch">
+      <div class="panel do frame">
         <h3>ما نقوم به</h3>
         <ul>
           <li>نفهم احتياجك ونحلل وضعك وإمكانياتك.</li>
@@ -299,7 +292,7 @@ def index():
           <li>نُشرف ونتابع على جهة التنفيذ حسب الاتفاق المبرم.</li>
         </ul>
       </div>
-      <div class="panel dont sketch red">
+      <div class="panel dont frame red">
         <h3>ما لا نقوم به</h3>
         <ul>
           <li>لا ننفّذ الأعمال بأنفسنا نهائياً.</li>
@@ -316,10 +309,10 @@ def index():
     <h2 id="method-h">نبدأ بفهم احتياجك، ثم نقول لك أيّ نوع من المعلومات بين يديك</h2>
     <p class="sec-sub">نحلل الوضع ونوضح الخيارات، ونميّز دائماً بين أربعة أنواع من المعلومات:</p>
     <div class="kinds">
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="25" cy="25" r="15" transform="translate(3 3)"/><circle cx="24" cy="24" r="15"/><path d="M35 35 L50 50"/></svg><b>معلومة تحتاج إلى تحقق</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><path class="mk" d="M8 48 V10 L46 48 Z" transform="translate(3 3)"/><path d="M8 48 V10 L46 48 Z M8 20 H14 M8 30 H16 M8 40 H14 M20 48 V42 M30 48 V40 M40 48 V44"/></svg><b>معلومة فنية أو هندسية</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="13" cy="39" r="8" transform="translate(3 3)"/><path d="M28 8 V48 M16 48 H40 M10 16 H46 M10 16 L4 32 H18 Z M46 16 L40 32 H52 Z"/></svg><b>معلومة نظامية أو قانونية</b></div>
-      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true" filter="url(#rough)"><circle class="mk" cx="28" cy="28" r="19" transform="translate(3 3)"/><circle cx="28" cy="28" r="19"/><path d="M28 16 V40 M22 21 C22 17 34 17 34 22 C34 27 22 28 22 33 C22 38 34 38 34 34"/></svg><b>توصية تجارية</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="25" cy="25" r="15" transform="translate(3 3)"/><circle cx="24" cy="24" r="15"/><path d="M35 35 L50 50"/></svg><b>معلومة تحتاج إلى تحقق</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><path class="mk" d="M8 48 V10 L46 48 Z" transform="translate(3 3)"/><path d="M8 48 V10 L46 48 Z M8 20 H14 M8 30 H16 M8 40 H14 M20 48 V42 M30 48 V40 M40 48 V44"/></svg><b>معلومة فنية أو هندسية</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="13" cy="39" r="8" transform="translate(3 3)"/><path d="M28 8 V48 M16 48 H40 M10 16 H46 M10 16 L4 32 H18 Z M46 16 L40 32 H52 Z"/></svg><b>معلومة نظامية أو قانونية</b></div>
+      <div class="kind"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="mk" cx="28" cy="28" r="19" transform="translate(3 3)"/><circle cx="28" cy="28" r="19"/><path d="M28 16 V40 M22 21 C22 17 34 17 34 22 C34 27 22 28 22 33 C22 38 34 38 34 34"/></svg><b>توصية تجارية</b></div>
     </div>
     <p class="after">وبذلك تعرف طبيعة المعلومة التي تعتمد عليها قبل أن تتخذ قراراتك المستقبلية.</p>
   </div>
@@ -336,7 +329,7 @@ def index():
   <div class="wrap">
     <h2 id="start-h">ابدأ طلبك في أربع خطوات</h2>
     <p class="sec-sub">اختر المسار والمرحلة، وأدخل بياناتك، ثم ننقلك إلى فاتورة رسمية على صفحة ميسر المعتمدة تدفع منها. وإن كانت المرحلة «حسب الاتفاق» نرسل طلبك عبر واتساب ونتواصل معك لتحديد التفاصيل.</p>
-    <div class="form-sheet sketch" id="wz">
+    <div class="form-sheet frame" id="wz">
       <ol class="prog" id="prog" aria-label="خطوات الطلب"></ol>
       <div id="wz-body" aria-live="polite"></div>
     </div>
@@ -367,7 +360,7 @@ def doc_page(fname, key, title, desc, intro, sections, extra_ld=None, extra_html
   <p>{intro}</p>
 </div>
 <div class="wrap doc">
-  <aside class="toc sketch" aria-label="{toc_lbl}"><b>{toc_h}</b>{toc}</aside>
+  <aside class="toc frame" aria-label="{toc_lbl}"><b>{toc_h}</b>{toc}</aside>
   <article class="article">{arts}{extra_html}<p class="updated">{upd}</p></article>
 </div>
 """ + footer(lang) + tail('', lang)
@@ -378,7 +371,7 @@ def doc_page(fname, key, title, desc, intro, sections, extra_ld=None, extra_html
 
 # ============================ من نحن ============================
 def about():
-    sea = '<svg viewBox="0 0 84 68" aria-hidden="true" filter="url(#rough)"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 50 C14 44 22 56 32 50 S50 44 60 50 S74 56 80 50"/><path class="sea" d="M4 60 C14 54 22 66 32 60 S50 54 60 60 S74 66 80 60"/></svg>'
+    sea = '<svg viewBox="0 0 84 68" aria-hidden="true"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 52 H80"/><path class="sea" d="M14 60 H70"/></svg>'
     secs = [
      ('who', 'من نحن', f'''<p>{CO}، مقرها الدمام في المنطقة الشرقية بالمملكة العربية السعودية. منصة تهدف إلى المساهمة في تقديم الخبرات والاستشارات والتوعية الإرشادية لشريحة من أفراد المجتمع، للاستفادة من الخبرات العملية والميدانية المتراكمة في مجالات متعددة.</p>
 <p>نساعد الأفراد وأصحاب المشاريع الناشئة، ونطوّر المشاريع القائمة والمتعثرة، ونرافق المطورين العقاريين، لنرى الطريق بصورة أوضح قبل البدء، ونعرف المسار الصحيح بصورة عملية ومبسطة.</p>
@@ -393,7 +386,7 @@ def about():
 </ul>'''),
      ('how', 'كيف نعمل', '''<p>نبدأ بفهم الاحتياج، ثم نحلل الوضع، ونوضح الخيارات. وفي كل ذلك نميّز بين أربعة أنواع من المعلومات: المعلومة التي تحتاج إلى تحقق، والمعلومة الفنية أو الهندسية، والمعلومة النظامية أو القانونية، والتوصية التجارية. وبذلك يعرف العميل طبيعة المعلومة التي يعتمد عليها قبل أن يتخذ قراراته.</p>
 <p>ونحن ندرك أن الهدف ليس تقديم معلومة أو فكرة فحسب، بل مساعدة العميل على تجنب الأخطاء والوصول إلى المسار الصحيح ليتخذ قراراً أفضل.</p>'''),
-     ('limits', 'حدود دورنا', f'''<div class="callout sketch red"><b>نُشرف ولا ننفّذ</b>مهمة «{CO}» مقتصرة على التوعية وتوضيح المسار الصحيح والسليم لتجنب المخاطر المحتملة، والإشراف والمتابعة حسب الاتفاق المبرم. ولا ننفّذ الأعمال بأنفسنا نهائياً. أي خدمة تنفيذية تكون عن طريق الجهة المختصة المستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق.</div>
+     ('limits', 'حدود دورنا', f'''<div class="callout frame red"><b>نُشرف ولا ننفّذ</b>مهمة «{CO}» مقتصرة على التوعية وتوضيح المسار الصحيح والسليم لتجنب المخاطر المحتملة، والإشراف والمتابعة حسب الاتفاق المبرم. ولا ننفّذ الأعمال بأنفسنا نهائياً. أي خدمة تنفيذية تكون عن طريق الجهة المختصة المستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق.</div>
 <p>ولا نحل محل المكتب الهندسي ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه. ومكاتب الخدمات والاستشارات المهنية والجهات المختصة والمرخصة جهات تنفيذية متخصصة مستقلة، ونوجه العميل إلى الاختيار المناسب منها.</p>'''),
      ('mission', 'رسالتنا وغايتنا', '''<p>الخبرة عندما تتحول إلى معرفة ويستفيد منها الآخرون، تصبح قيمة. نسعى إلى نقل الخبرة بصورة عملية ومبسطة، ومساعدة أفراد المجتمع وأصحاب المشاريع على رؤية الطريق بصورة أوضح قبل البدء، وأثناء التطوير، وعند مواجهة التعثر.</p>'''),
      ('contact', 'تواصل معنا', f'''<p>العنوان: {ADDR}.</p><ul data-contact></ul><p><span data-legal></span></p>
@@ -409,7 +402,7 @@ def privacy():
      ('collect', 'البيانات التي نتلقاها', '''<p>عند تعبئة نموذج الطلب تُدخل:</p>
 <ul><li>الاسم الكامل ورقم الجوال (إلزاميان).</li><li>البريد الإلكتروني والمدينة ونطاق رأس المال (اختيارية).</li><li>نبذة مختصرة عن فكرتك أو مشروعك.</li><li>عند حجز الموعد: بريدك الإلكتروني (اختياري) وملاحظاتك للجلسة.</li></ul>
 <p>إن اخترت التواصل عبر واتساب، فإن ما ترسله إلينا هناك هو ما تكتبه أنت.</p>
-<div class="callout sketch soft"><b>بيانات بطاقتك</b>لا نطلبها ولا نراها ولا نخزّنها. تُدخل بيانات الدفع في صفحة الفاتورة المستضافة لدى ميسر وحدها.</div>'''),
+<div class="callout frame soft"><b>بيانات بطاقتك</b>لا نطلبها ولا نراها ولا نخزّنها. تُدخل بيانات الدفع في صفحة الفاتورة المستضافة لدى ميسر وحدها.</div>'''),
      ('use', 'كيف نستخدم بياناتك', '''<ul><li>إنشاء فاتورة الدفع الخاصة بطلبك، وتظهر فيها بياناتك ونوع الخدمة والمبلغ.</li><li>حجز موعد الاستشارة وإرسال رابط اجتماع Google Meet إليك.</li><li>التواصل معك لتحديد نطاق العمل.</li><li>تقديم الخدمة المتفق عليها، والمحاسبة والمطابقة المالية.</li></ul>
 <p>لا نستخدم بياناتك للتسويق لجهات أخرى، ولا نبيعها.</p>'''),
      ('store', 'هل يخزّن الموقع بياناتي؟', '''<p>لا يحتفظ هذا الموقع بقاعدة بيانات للطلبات، ولا يحفظ ما تدخله في متصفحك بعد إغلاق الصفحة. عند الضغط على زر الدفع تُرسل بياناتك مرة واحدة إلى خادم الموقع لإنشاء الفاتورة لدى ميسر، ثم تنتقل إلى صفحة الفاتورة. لا نسجّل بياناتك في سجلات الخادم.</p>
@@ -456,7 +449,7 @@ def security():
 def policy():
     secs = [
      ('nature', 'طبيعة خدماتنا', f'''<p>«{CO}» جهة توعية وإرشاد وإشراف ومتابعة. نقدّم الاستشارات والتوعية بحسب خبراتنا العملية والميدانية، ونوجّه العميل إلى المسار الأنسب لاتخاذ قراره.</p>
-<div class="callout sketch red"><b>نُشرف ولا ننفّذ</b>لا ننفّذ الأعمال بأنفسنا، ولا نحل محل المكتب الهندسي، ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</div>
+<div class="callout frame red"><b>نُشرف ولا ننفّذ</b>لا ننفّذ الأعمال بأنفسنا، ولا نحل محل المكتب الهندسي، ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</div>
 <p>وفي التطوير العقاري، تتضمن بعض الجوانب أموراً حكومية أو هندسية أو فنية أو نظامية أو قانونية تتطلب رأي جهة مختصة أو اعتمادها. ولذلك نوضح للعميل طبيعة كل معلومة أو توصية، ونستعين بالمتخصصين والجهات المرخصة عند الحاجة.</p>'''),
      ('info', 'أنواع المعلومات التي نقدّمها', '''<p>نميّز للعميل بين المعلومة التي تحتاج إلى تحقق، والمعلومة الفنية أو الهندسية، والمعلومة النظامية أو القانونية، والتوصية التجارية. ولا يُغني رأينا في الأمور الفنية أو النظامية أو القانونية عن رأي الجهة المختصة المرخصة.</p>'''),
      ('fees', 'الرسوم والمراحل', '''<p>لكل مسار مراحل محددة، وتُعلن رسوم كل مرحلة في <a href="tracks.html">صفحة المسارات</a> قبل التسجيل. وبعض المراحل تُحدَّد رسومها «حسب الاتفاق المبرم» أو «حسب العقد المبرم»، وهذه لا تُدفع من الموقع بل بعد التواصل وتحديد نطاق العمل.</p>
@@ -483,7 +476,7 @@ def booking():
 </div>
 <section class="start" aria-label="حجز الاستشارة" style="padding-top:1.5rem">
   <div class="wrap">
-    <div class="form-sheet sketch" id="bk"><div id="bk-body" aria-live="polite"></div></div>
+    <div class="form-sheet frame" id="bk"><div id="bk-body" aria-live="polite"></div></div>
   </div>
 </section>
 """ + footer('ar') + tail('<script src="assets/booking.js"></script>\n', 'ar')

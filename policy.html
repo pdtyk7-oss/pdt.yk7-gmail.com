@@ -22,11 +22,6 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-<filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="3.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.6" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="rough-s" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>
-</svg>
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="top wrap">
   <div class="top-row">
@@ -48,12 +43,12 @@
     </div>
   </div>
   <nav class="nav" aria-label="التنقل الرئيسي">
-    <a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M3 11 L12 3 L21 11 M5 10 V20 H19 V10 M10 20 V14 H14 V20"/></svg><span>الرئيسية</span></a>
-    <a href="about.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 11 V17"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.6" r=".6"/></svg><span>من نحن</span></a>
-    <a href="tracks.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 3 V21 M12 5 H19 L21 7.5 L19 10 H12 M12 12 H5 L3 14.5 L5 17 H12"/></svg><span>المسارات والرسوم</span></a>
-    <a href="policy.html" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19 M9 13 H16 M9 17 H14"/></svg><span>سياستنا</span></a>
-    <a href="privacy.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M6 11 H18 V21 H6 Z M8 11 V8 A4 4 0 0 1 16 8 V11 M12 15 V17.5"/></svg><span>الخصوصية</span></a>
-    <a href="security.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="M12 3 L19 6 V12 C19 16.5 16 19.5 12 21 C8 19.5 5 16.5 5 12 V6 Z M9 12 L11.5 14.5 L15.5 9.5"/></svg><span>الأمان</span></a>
+    <a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 L12 3 L21 11 M5 10 V20 H19 V10 M10 20 V14 H14 V20"/></svg><span>الرئيسية</span></a>
+    <a href="about.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11 V17"/><circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.6" r=".6"/></svg><span>من نحن</span></a>
+    <a href="tracks.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H19 L21 7.5 L19 10 H12 M12 12 H5 L3 14.5 L5 17 H12"/></svg><span>المسارات والرسوم</span></a>
+    <a href="policy.html" aria-current="page"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19 M9 13 H16 M9 17 H14"/></svg><span>سياستنا</span></a>
+    <a href="privacy.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11 H18 V21 H6 Z M8 11 V8 A4 4 0 0 1 16 8 V11 M12 15 V17.5"/></svg><span>الخصوصية</span></a>
+    <a href="security.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V12 C19 16.5 16 19.5 12 21 C8 19.5 5 16.5 5 12 V6 Z M9 12 L11.5 14.5 L15.5 9.5"/></svg><span>الأمان</span></a>
   </nav>
 </header>
 <main id="main">
@@ -63,9 +58,9 @@
   <p>ما نقوم به وما لا نقوم به، وكيف تعمل الرسوم والمراحل والدفع.</p>
 </div>
 <div class="wrap doc">
-  <aside class="toc sketch" aria-label="محتويات الصفحة"><b>في هذه الصفحة</b><a href="#nature">طبيعة خدماتنا</a><a href="#info">أنواع المعلومات التي نقدّمها</a><a href="#fees">الرسوم والمراحل</a><a href="#payment">الدفع</a><a href="#booking">حجز الاستشارة</a><a href="#refund">الإلغاء والاسترجاع</a><a href="#client">التزامات العميل</a><a href="#third">الجهات المنفّذة والمتخصصة</a><a href="#ip">المحتوى والملكية</a><a href="#law">النظام الواجب التطبيق</a><a href="#contact">التواصل والتعديلات</a></aside>
+  <aside class="toc frame" aria-label="محتويات الصفحة"><b>في هذه الصفحة</b><a href="#nature">طبيعة خدماتنا</a><a href="#info">أنواع المعلومات التي نقدّمها</a><a href="#fees">الرسوم والمراحل</a><a href="#payment">الدفع</a><a href="#booking">حجز الاستشارة</a><a href="#refund">الإلغاء والاسترجاع</a><a href="#client">التزامات العميل</a><a href="#third">الجهات المنفّذة والمتخصصة</a><a href="#ip">المحتوى والملكية</a><a href="#law">النظام الواجب التطبيق</a><a href="#contact">التواصل والتعديلات</a></aside>
   <article class="article"><h2 id="nature">طبيعة خدماتنا</h2><p>«مسار المشاريع والتطوير APT» جهة توعية وإرشاد وإشراف ومتابعة. نقدّم الاستشارات والتوعية بحسب خبراتنا العملية والميدانية، ونوجّه العميل إلى المسار الأنسب لاتخاذ قراره.</p>
-<div class="callout sketch red"><b>نُشرف ولا ننفّذ</b>لا ننفّذ الأعمال بأنفسنا، ولا نحل محل المكتب الهندسي، ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</div>
+<div class="callout frame red"><b>نُشرف ولا ننفّذ</b>لا ننفّذ الأعمال بأنفسنا، ولا نحل محل المكتب الهندسي، ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</div>
 <p>وفي التطوير العقاري، تتضمن بعض الجوانب أموراً حكومية أو هندسية أو فنية أو نظامية أو قانونية تتطلب رأي جهة مختصة أو اعتمادها. ولذلك نوضح للعميل طبيعة كل معلومة أو توصية، ونستعين بالمتخصصين والجهات المرخصة عند الحاجة.</p><h2 id="info">أنواع المعلومات التي نقدّمها</h2><p>نميّز للعميل بين المعلومة التي تحتاج إلى تحقق، والمعلومة الفنية أو الهندسية، والمعلومة النظامية أو القانونية، والتوصية التجارية. ولا يُغني رأينا في الأمور الفنية أو النظامية أو القانونية عن رأي الجهة المختصة المرخصة.</p><h2 id="fees">الرسوم والمراحل</h2><p>لكل مسار مراحل محددة، وتُعلن رسوم كل مرحلة في <a href="tracks.html">صفحة المسارات</a> قبل التسجيل. وبعض المراحل تُحدَّد رسومها «حسب الاتفاق المبرم» أو «حسب العقد المبرم»، وهذه لا تُدفع من الموقع بل بعد التواصل وتحديد نطاق العمل.</p>
 <ul><li>رسوم مرحلة التصميم والتخطيط في التطوير العقاري غير شاملة رسوم المكتب الهندسي.</li><li>رسوم مرحلة التراخيص في التطوير العقاري غير شاملة الرسوم الحكومية.</li></ul>
 <p data-vat-note></p><h2 id="payment">الدفع</h2><p>تُدفع رسوم المراحل المحددة عبر فاتورة إلكترونية تصدر على صفحة ميسر المعتمدة، وتتضمن بيانات العميل ونوع الخدمة والمبلغ. ولا يُعتمد الطلب قبل تأكيد استلام الدفع من جهتنا. وللتفاصيل التقنية راجع صفحة <a href="security.html">الأمان</a>.</p><h2 id="booking">حجز الاستشارة</h2><p>لا يُفتح حجز موعد الاستشارة إلا بعد أن يؤكد النظام استلام الدفع من ميسر. تُعقد الجلسات من 10 صباحاً حتى 3 مساءً بتوقيت مكة المكرمة عبر اجتماع Google Meet، وتظهر الأيام والأوقات المتاحة في صفحة الحجز. يصلك رابط الاجتماع بعد الحجز، وبدعوة على بريدك إن أدخلته، ويمكنك التواصل معنا عبر واتساب لتأكيد الموعد.</p><h2 id="refund">الإلغاء والاسترجاع</h2><p>تُحدَّد شروط الإلغاء والاسترجاع قبل بدء كل مرحلة، وتُدرس أي طلبات استرجاع حالة بحالة بحسب نطاق ما قُدِّم من عمل حتى تاريخ الطلب. ولطلب ذلك، تواصل معنا عبر وسائل التواصل المعلنة في الموقع مع ذكر رقم الطلب.</p><h2 id="client">التزامات العميل</h2><ul><li>تقديم معلومات صحيحة وكاملة عن مشروعه ووضعه، لأن جودة التوعية تعتمد عليها.</li><li>أن يعلم أن القرار النهائي له بعد اطلاعه على الخيارات والمخاطر.</li><li>استخدام الخدمة لأغراض مشروعة.</li></ul><h2 id="third">الجهات المنفّذة والمتخصصة</h2><p>تتم الأعمال التنفيذية والهندسية والنظامية والقانونية عبر جهات متخصصة ومرخصة مستقلة. ويُحدَّد في الاتفاق المبرم نطاق إشرافنا ومتابعتنا على كل جهة. ونقيّم المنفّذين وفق طبيعة المشروع ومتطلباته، وليس على أساس السعر فقط.</p><h2 id="ip">المحتوى والملكية</h2><p>المحتوى المنشور في هذا الموقع ملك لـمسار المشاريع والتطوير APT، ولا يجوز نسخه أو إعادة نشره دون إذن مسبق.</p><h2 id="law">النظام الواجب التطبيق</h2><p>تخضع هذه السياسة والخدمات المرتبطة بها للأنظمة المعمول بها في المملكة العربية السعودية.</p><h2 id="contact">التواصل والتعديلات</h2><p>قد نعدّل هذه السياسة، ويظهر تاريخ آخر تحديث في أسفلها. وللاستفسار: <span data-contact-line></span>. وانظر أيضاً <a href="privacy.html">الخصوصية</a> و<a href="security.html">الأمان</a>.</p><p class="updated">آخر تحديث: أكتوبر 2026. تسري هذه الصفحة منذ نشرها ما لم تُعدَّل، ويظهر تاريخ آخر تحديث هنا.</p></article>

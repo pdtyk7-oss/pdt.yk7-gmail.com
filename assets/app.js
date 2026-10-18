@@ -24,8 +24,8 @@ function stageHTML(st, i, trackId){
 }
 function panelHTML(t, idx){
   const pts = `<ul class="dashes">${t.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>`;
-  const crit = t.critical ? `<div class="callout sketch red"><b>${esc(t.critical.title)}</b>${esc(t.critical.text)}</div>` : '';
-  const ntc  = t.notice ? `<div class="callout sketch soft"><b>${esc(t.notice.title)}</b>${esc(t.notice.text)}</div>` : '';
+  const crit = t.critical ? `<div class="callout frame red"><b>${esc(t.critical.title)}</b>${esc(t.critical.text)}</div>` : '';
+  const ntc  = t.notice ? `<div class="callout frame soft"><b>${esc(t.notice.title)}</b>${esc(t.notice.text)}</div>` : '';
   const scopeList = t.scopeList ? `<h4 class="sub-h">${T.scopeListH}</h4><ul class="dashes" style="columns:2;column-gap:2rem">${t.scopeList.map(x=>`<li style="break-inside:avoid">${esc(x)}</li>`).join('')}</ul>` : '';
   const scope = t.scope ? `<h4 class="sub-h">${T.scopeH}</h4><div class="scope">${t.scope.map(s=>`<div><b>${esc(s.t)}</b><p>${esc(s.d)}</p>${s.q?`<ul>${s.q.map(q=>`<li>${esc(q)}</li>`).join('')}</ul>`:''}</div>`).join('')}</div>` : '';
   const flow = t.flow ? `<h4 class="sub-h">${T.flowH}</h4><ol class="flow">${t.flow.map(f=>`<li>${esc(f)}</li>`).join('')}</ol>` : '';
@@ -76,7 +76,7 @@ const baseFee = () => { const st=stageOf(); if(!st||st.fee==null) return null; r
 const vatPct  = () => Number(CONFIG.VAT_PERCENT)||0;
 const totalFee = () => { const b=baseFee(); return b==null ? null : Math.round(b*(1+vatPct()/100)*100)/100; };
 const cleanPhone = p => toLatinDigits(p).replace(/[\s\-()]/g,'');
-const errStyle = 'color:var(--red-d);font:700 .95rem var(--f-hand);margin-top:.7rem';
+const errStyle = 'color:var(--red-d);font:700 .95rem var(--f-body);margin-top:.7rem';
 
 function renderProg(){
   $('#prog').innerHTML = T.steps.map((n,i)=>{
@@ -140,7 +140,7 @@ function step4(){
   const noteRow = st.feeNote ? row(T.s4.note,esc(st.feeNote)) : '';
   const btn = total!=null ? T.s4.payBtn(T.money(total)) : T.s4.waBtn;
   return `<h3 tabindex="-1" id="wz-h">${T.s4.title}</h3>
-  <dl class="sum sketch">
+  <dl class="sum frame">
     ${row(T.s4.track,esc(t.name))}${row(T.s4.stage,esc(st.name))}${noteRow}
     ${row(T.s4.name,esc(S.data.name))}${row(T.s4.mobile,`<span dir="ltr">${esc(S.data.phone)}</span>`)}${vatRows}
     ${row(T.s4.amount,feeTxt,'total')}
