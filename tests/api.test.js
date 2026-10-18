@@ -34,7 +34,7 @@ test('create-invoice: the server sets the amount and links the invoice to a book
   const invoice = backend.state.invoices[0];
   assert.equal(invoice.amount, 300000);                                  // 3000 SAR, ignoring the amount sent by the browser
   assert.equal(invoice.success_url, `https://www.example.com/en/booking.html?ref=${ref(backend)}`);
-  assert.match(invoice.description, /Masar Saudi Projects and Development Company/);
+  assert.match(invoice.description, /Masar Projects and Development APT/);
   assert.equal(invoice.metadata.stage, 'r2');
   assert.equal(invoice.metadata.lang, 'en');
 });

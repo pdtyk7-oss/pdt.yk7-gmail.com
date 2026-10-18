@@ -48,7 +48,7 @@ const TRACKS = [
    points:[
      'We provide consulting from our hands-on field experience. When a matter requires a specific specialization or license, we guide you to the best real estate service offices, professional consultancies and competent licensed bodies, and we do not provide every service ourselves.',
      'We help you evaluate ideas, avoid early mistakes and losses, and reach the most suitable path before making a decision.'],
-   critical:{title:'Very important', text:'\u201cMasar Saudi Projects and Development Company\u201d does not replace the engineering office and does not practice licensed engineering work in its place. Our role is consulting, awareness and guidance, helping you define your need and choose the suitable office, and following the path and supervising execution as per the signed agreement.'},
+   critical:{title:'Very important', text:'\u201cMasar Projects and Development APT\u201d does not replace the engineering office and does not practice licensed engineering work in its place. Our role is consulting, awareness and guidance, helping you define your need and choose the suitable office, and following the path and supervising execution as per the signed agreement.'},
    notice:{title:'Important note', text:'Real estate development includes governmental, engineering, technical, regulatory or legal aspects that require the opinion or approval of a competent body. We therefore explain the nature of each piece of information or recommendation, and use specialists and licensed bodies when needed.'},
    scope:[
     {t:'Project study', d:'The idea of the project, its purpose and the required use of the building; reviewing the available capabilities and your requirements; and discussing risks and opportunities and defining the proposed path.'},
@@ -71,7 +71,7 @@ const TRACKS = [
     {id:'r3', name:'Licenses and regulatory procedures', fee:2000, feeNote:'Does not include government fees',
      items:['Required licenses','Building requirements','Relevant bodies','Regulatory requirements of the project']},
     {id:'r4', name:'Execution, supervision and follow-up', fee:null, feeLabel:'As per the signed contract',
-     lead:'Under the supervision and follow-up of Masar Saudi Projects and Development, covering the following execution stages:',
+     lead:'Under the supervision and follow-up of Masar Projects and Development APT, covering the following execution stages:',
      items:['Choosing the contractor and implementers','Preparation and project start','Earthworks and foundations','Structural frame','Masonry and partitions','Electrical works','Plumbing works','Air conditioning and ventilation','Insulation and protection','Doors, windows and facades','Finishing stage','External finishing','Inspection and handover'], numbered:true}
    ]}
 ];

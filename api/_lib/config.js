@@ -13,6 +13,6 @@ module.exports = {
   DAYS_AHEAD: 14,         // how far ahead customers can book
   MIN_NOTICE_HOURS: 4,    // earliest bookable time from "now"
   WORK_DAYS: [0, 1, 2, 3, 4], // 0 = Sunday ... 6 = Saturday (Sunday to Thursday)
-  COMPANY_AR: 'شركة مسار للمشاريع والتطوير السعودية',
-  COMPANY_EN: 'Masar Saudi Projects and Development Company',
+  COMPANY_AR: 'مسار المشاريع والتطوير APT',
+  COMPANY_EN: 'Masar Projects and Development APT',
 };

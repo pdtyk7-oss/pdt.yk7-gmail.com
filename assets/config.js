@@ -3,9 +3,9 @@
    المفتاح السري لميسر (sk_) يوضع في إعدادات الخادم فقط (انظر README.md).
    ===================================================================== */
 window.CONFIG = {
-  COMPANY: 'شركة مسار للمشاريع والتطوير السعودية',
+  COMPANY: 'مسار المشاريع والتطوير APT',
   // الاسم الإنجليزي للنسخة الإنجليزية. تأكد من مطابقته للاسم المعتمد في سجلك التجاري.
-  COMPANY_EN: 'Masar Saudi Projects and Development Company',
+  COMPANY_EN: 'Masar Projects and Development APT',
   ADDRESS: 'الدمام، المنطقة الشرقية، المملكة العربية السعودية',
   ADDRESS_EN: 'Dammam, Eastern Province, Saudi Arabia',
 
