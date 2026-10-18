@@ -105,6 +105,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .pathfig .mk{fill:var(--sea);mix-blend-mode:multiply;stroke:none}
 .pathfig text{font:700 20px var(--f-body);fill:var(--ink)}
 .pathfig .lab{opacity:0;animation:fade .6s ease-out forwards}
+.pathfig .medal{opacity:0;animation:fade .7s 2.6s ease-out forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade{to{opacity:1}}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.pathfig{max-width:440px;margin-inline:auto}}
@@ -328,7 +329,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.2);padding
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .pathfig .pen{animation:none;stroke-dashoffset:0}
-  .pathfig .flag,.pathfig .lab{animation:none;opacity:1}
+  .pathfig .flag,.pathfig .lab,.pathfig .medal{animation:none;opacity:1}
   .live i{animation:none}
   .btn,.scn,.scn svg,.faq summary::after{transition:none}
 }

@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from medal import medal
+
 ROOT = str(Path(__file__).resolve().parent.parent)   # the site folder
 CO = 'مسار المشاريع والتطوير APT'
 ADDR = 'الدمام، المنطقة الشرقية، المملكة العربية السعودية'
@@ -190,7 +192,10 @@ def hero_svg(lang='ar'):
             an = {'start':'end','end':'start','middle':'middle'}[an]
         texts.append(f'<text class="lab" style="animation-delay:{d}s" x="{x}" y="{y}" text-anchor="{an}">{lab}</text>')
     g_open = '<g transform="translate(560 0) scale(-1 1)">' if mirror else '<g>'
+    medal_defs, medal_body = medal('md')
+    medal_x = 560 - 104 if mirror else 104
     return f"""<svg class="pathfig" direction="ltr" viewBox="0 0 560 495" role="img" aria-label="{H['aria']}">
+      <defs>{medal_defs}</defs>
       {g_open}<g>
         <path class="ln" d="M20 452 C120 444 240 458 360 448 S500 454 545 446"/>
         <path class="ln trail" d="{HERO_P}"/>
@@ -204,9 +209,8 @@ def hero_svg(lang='ar'):
         <path class="ln" d="M335 352 V318"/><path class="flag" style="animation-delay:1.2s" d="M335 318 L362 327 L335 336 Z"/>
         <path class="ln" d="M228 262 V228"/><path class="flag" style="animation-delay:1.8s" d="M228 228 L255 237 L228 246 Z"/>
         <path class="ln" d="M148 162 V128"/><path class="flag" style="animation-delay:2.3s" d="M148 128 L121 137 L148 146 Z"/>
-        <path class="mk" transform="translate(5 4)" d="M60 56 L104 18 L148 56 Z"/>
-        <path class="ln" d="M70 94 V54 H138 V94 M60 56 L104 18 L148 56 M96 94 V72 H112 V94 M76 62 h12 v10 h-12 z M50 94 H158"/>
       </g></g>
+      <g class="medal" transform="translate({medal_x} 46) scale(1.25)">{medal_body}</g>
       {''.join(texts)}
     </svg>"""
 
