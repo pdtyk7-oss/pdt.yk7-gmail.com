@@ -16,13 +16,10 @@ UPDATED_EN = 'October 2026'
 GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21 M12 3 C8 7 8 17 12 21 M12 3 C16 7 16 17 12 21"/></svg>'
 
 
-def emblem(label):
-    return f'''<svg class="emblem" viewBox="0 0 64 64" role="img" aria-label="{label}">
-<rect class="badge" width="64" height="64" rx="15"/>
-<path class="way" d="M18 51 C18 39 46 42 46 30 C46 21 20 26 22 15"/>
-<path class="dash" d="M18 51 C18 39 46 42 46 30 C46 21 20 26 22 15"/>
-<circle class="pin" cx="22" cy="14" r="6.6"/><circle class="dot" cx="22" cy="14" r="2.6"/>
-</svg>'''
+def emblem(lang):
+    """The Masar logo mark: one vector file shared by every page."""
+    prefix = '../' if lang == 'en' else ''
+    return f'<img class="emblem" src="{prefix}assets/logo.svg" alt="" width="200" height="200">'
 
 def ico(d, extra=''):
     return f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{d}"/>{extra}</svg>'
@@ -77,11 +74,11 @@ def header(cur='', lang='ar', page='index.html'):
     en = lang == 'en'
     if en:
         nav = [('index.html','Home','home'),('about.html','About','about'),('tracks.html','Tracks and fees','tracks'),('policy.html','Policy','policy'),('privacy.html','Privacy','privacy'),('security.html','Security','security')]
-        cta, brand_word, company, aria_home, aria_nav, logo_lbl = 'Start your request', 'Masar', CO_EN, f'{CO_EN} - Home', 'Main navigation', 'Masar logo'
+        cta, brand_word, company, aria_home, aria_nav = 'Start your request', 'Masar', CO_EN, f'{CO_EN} - Home', 'Main navigation'
         sw = f'<a class="lang" href="../{page}" lang="ar" hreflang="ar" aria-label="التبديل إلى العربية">{GLOBE}<span>العربية</span></a>'
     else:
         nav = [('index.html','الرئيسية','home'),('about.html','من نحن','about'),('tracks.html','المسارات والرسوم','tracks'),('policy.html','سياستنا','policy'),('privacy.html','الخصوصية','privacy'),('security.html','الأمان','security')]
-        cta, brand_word, company, aria_home, aria_nav, logo_lbl = 'ابدأ طلبك', 'مسار', CO, f'{CO} - الصفحة الرئيسية', 'التنقل الرئيسي', 'شعار مسار'
+        cta, brand_word, company, aria_home, aria_nav = 'ابدأ طلبك', 'مسار', CO, f'{CO} - الصفحة الرئيسية', 'التنقل الرئيسي'
         sw = f'<a class="lang" href="en/{page}" lang="en" hreflang="en" aria-label="Switch to English">{GLOBE}<span>English</span></a>'
     links = '\n    '.join(
         f'<a href="{h}"' + (' aria-current="page"' if cur == k else '') + f'>{ICONS[k]}<span>{t}</span></a>'
@@ -89,7 +86,7 @@ def header(cur='', lang='ar', page='index.html'):
     return f"""<header class="top wrap">
   <div class="top-row">
     <a class="brand" href="index.html" aria-label="{aria_home}">
-      {emblem(logo_lbl)}
+      {emblem(lang)}
       <span class="brand-text">
         <span class="wordmark">{brand_word}<svg class="swoosh" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 6 H117"/></svg></span>
         <span class="co">{company}</span>
@@ -113,7 +110,7 @@ def footer(lang='ar'):
 <footer>
   <div class="wrap">
     <div>
-      <div class="fbrand">{emblem('Masar logo')}<h2>{CO_EN}</h2></div>
+      <div class="fbrand">{emblem('en')}<h2>{CO_EN}</h2></div>
       <p>Consulting and guidance with field experience, by live online broadcast. We guide, supervise and follow up, and we do not execute.</p>
       <p>{ADDR_EN}</p>
     </div>
@@ -141,7 +138,7 @@ def footer(lang='ar'):
 <footer>
   <div class="wrap">
     <div>
-      <div class="fbrand">{emblem('شعار مسار')}<h2>{CO}</h2></div>
+      <div class="fbrand">{emblem('ar')}<h2>{CO}</h2></div>
       <p>استشارات وتوعية إرشادية بخبرة ميدانية، بث مباشر أونلاين. نُرشد ونُشرف ونتابع، ولا ننفّذ.</p>
       <p>{ADDR}</p>
     </div>

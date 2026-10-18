@@ -10,7 +10,7 @@
 :root{
   --paper:#F2F4F0; --paper2:#E6EBE8; --sheet:#FFFFFF;
   --ink:#1A2547; --pen:#2B4FA8; --red:#CF3A2B; --red-d:#B3291B;
-  --sea:rgba(52,196,176,.45); --tint:rgba(52,196,176,.16); --graphite:#566073; --wa:#1B7F46;
+  --sun:#F29A18; --sea:rgba(52,196,176,.45); --tint:rgba(52,196,176,.16); --graphite:#566073; --wa:#1B7F46;
   --line:rgba(26,37,71,.16); --line-2:rgba(26,37,71,.42);
   --f-head:'Cairo',Arial,sans-serif;
   --f-body:'Cairo',Arial,sans-serif;
@@ -43,16 +43,11 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .top{display:block;padding-block:.9rem 0}
 .top-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.5rem}
 .brand{display:flex;align-items:center;gap:1.1rem;text-decoration:none;color:var(--ink)}
-.emblem{width:6.2rem;height:6.2rem;flex:none;color:var(--ink);--on-badge:var(--paper)}
-.emblem .badge{fill:currentColor}
-.emblem .way{fill:none;stroke:var(--on-badge);stroke-width:7.4;stroke-linecap:round}
-.emblem .dash{fill:none;stroke:currentColor;stroke-width:1.6;stroke-dasharray:3 3.6}
-.emblem .pin{fill:var(--red)}
-.emblem .dot{fill:var(--on-badge)}
+.emblem{width:7.6rem;height:7.6rem;flex:none}
 .brand-text{display:flex;flex-direction:column;align-items:flex-start}
 .wordmark{position:relative;font:800 3.5rem/1.05 var(--f-head);padding-bottom:.7rem}
 .swoosh{position:absolute;inset-inline:-.2rem;bottom:-.05rem;width:calc(100% + .4rem);height:.7rem;overflow:visible}
-.swoosh path{fill:none;stroke:var(--red);stroke-width:3.5;stroke-linecap:round}
+.swoosh path{fill:none;stroke:var(--sun);stroke-width:3.5;stroke-linecap:round}
 .co{font:700 1.02rem/1.4 var(--f-body);margin-top:.3rem;max-width:15rem}
 .top-actions{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
 .nav{display:flex;flex-wrap:wrap;align-items:stretch;gap:.2rem .5rem;margin-top:.9rem;padding:.55rem 0 .7rem;border-top:1.5px solid var(--line-2);border-bottom:2px solid var(--ink)}
@@ -67,7 +62,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .lang svg{width:1.15rem;height:1.15rem;flex:none}
 .lang svg *{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 @media(max-width:760px){
-  .emblem{width:4.6rem;height:4.6rem}
+  .emblem{width:5.4rem;height:5.4rem}
   .wordmark{font-size:2.6rem}
   .co{font-size:.9rem}
   .nav{flex-wrap:nowrap;overflow-x:auto;gap:0;scrollbar-width:thin}
@@ -289,7 +284,7 @@ footer p,footer li{font-size:1.02rem;line-height:1.9}
 footer a{color:#fff}
 footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.2);padding-top:1rem;font:500 .95rem/1.8 var(--f-body);color:#B9C4DE}
 .fbrand{display:flex;align-items:center;gap:.9rem}
-.fbrand .emblem{width:3.8rem;height:3.8rem;color:#fff;--on-badge:var(--ink)}
+.fbrand .emblem{width:3.8rem;height:3.8rem;padding:.2rem;background:#fff;border-radius:50%}
 @media(max-width:760px){footer .wrap{grid-template-columns:1fr}}
 
 /* ---------- واتساب وإشعار ---------- */

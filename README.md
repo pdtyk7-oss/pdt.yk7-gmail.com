@@ -16,6 +16,7 @@
 |---|---|
 | `index.html`, `tracks.html`, `about.html`, `policy.html`, `privacy.html`, `security.html`, `booking.html` | الصفحات العربية |
 | `en/` | النسخة الإنجليزية بنفس الصفحات |
+| `assets/logo.svg`, `assets/logo-4k.png`, `assets/logo.png`, `assets/logo-full.png`, `assets/logo-full-en.png` | الشعار: متجه (SVG)، ونسخة 4K شفافة (3840 بكسل)، ونسخة 1024 للمتصفح والمشاركة، والشعار الكامل بالعربية والإنجليزية |
 | `assets/config.js` | **إعداداتك**: واتساب، البريد، السجل التجاري، الضريبة |
 | `assets/data.js`, `assets/data.en.js` | المسارات والمراحل والرسوم |
 | `assets/lang.ar.js`, `assets/lang.en.js` | نصوص الواجهة |
