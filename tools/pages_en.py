@@ -10,7 +10,7 @@ ORG_EN = {
   "description": "Consulting and guidance with field experience for emerging projects, stalled projects, project development and real estate development, by live online broadcast.",
   "url": SITE + "/en/",
   "areaServed": "SA", "availableLanguage": "en",
-  "address": {"@type": "PostalAddress", "addressLocality": "Dammam", "addressRegion": "Eastern Province", "addressCountry": "SA"},
+  "address": {"@type": "PostalAddress", "streetAddress": "Hajar District", "addressRegion": "Eastern Province", "addressCountry": "SA"},
   "serviceType": ["Emerging Projects", "Project Development", "Stalled Projects", "Real Estate Development"]
 }
 
@@ -18,7 +18,7 @@ FAQ_EN = [
  ("Do you execute the project yourselves?", "No. Our task is awareness and clarifying the right path, plus supervision and follow-up as per the signed agreement. Any execution service is carried out by the competent independent party, under our supervision and follow-up."),
  ("Do you replace the engineering office or licensed bodies?", "No. We do not replace the engineering office and we do not practice licensed engineering work in its place. We help you define your need and choose the suitable office, then follow the path and supervise execution as per the agreement."),
  ("What if my idea is not suitable?", "If the idea is not suitable after the initial assessment in the first stage of the Emerging Projects track, we present three suitable alternatives."),
- ("Where are you based and how are the sessions held?", "We are based in Dammam, in the Eastern Province of Saudi Arabia, and sessions are held by live online broadcast, so you do not need to attend or travel."),
+ ("Where are you based and how are the sessions held?", "We are based in the Hajar District, in the Eastern Province of Saudi Arabia, and sessions are held by live online broadcast, so you do not need to attend or travel."),
  ("When can I book my consultation?", "Booking opens only after the system confirms Moyasar received your payment. After paying, you are taken to the booking page where you choose a day and a time between 10:00 and 15:00 Mecca time. You get a Google Meet link on screen and by email if you entered one, and you can send it to us on WhatsApp."),
  ("How do I pay, and are all stages paid on the site?", "The fees of the fixed-fee stages are paid through an electronic invoice on the approved Moyasar page, showing your details, the service and the amount. Once the payment is confirmed, booking your consultation opens. Stages marked “as per agreement” or “as per contract” are not paid on the site; we contact you to define the scope of work and the fees, and then an agreement is signed."),
  ("Do you store my card or my data?", "Your card number never passes through our site, because payment is made on the Moyasar page. The site does not keep a database of requests. The details are on the privacy and security pages."),
@@ -36,16 +36,14 @@ def index():
            ("stalled", "My project has stalled and I don’t know the real reason", "Stalled Projects"),
            ("realestate", "I want to build or develop a property and I fear mistakes and unnecessary costs", "Real Estate Development")]
     scn_html = ''.join(f'<button class="scn" data-pick="{k}" type="button"><span class="q">{q}<span class="t">{t}</span></span>{CHEV}</button>' for k, q, t in scn)
-    pin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22 C7 16 5 13 5 10 A7 7 0 0 1 19 10 C19 13 17 16 12 22 Z" fill="none" stroke="#1A2547" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="#CF3A2B"/></svg>'
     arrow = '<svg viewBox="0 0 28 36" aria-hidden="true"><path d="M14 35 V6 M6 13 L14 5 L22 13"/></svg>'
     svg = hero_svg('en')
-    body = head(f'{CO_EN} | Consulting for emerging and stalled projects and real estate development in Dammam',
-                'Consulting and guidance with field experience for emerging projects, stalled projects, project development and real estate development, from Dammam to all of Saudi Arabia. Live online sessions and payment by Moyasar invoice.',
+    body = head(f'{CO_EN} | Consulting for emerging and stalled projects and real estate development in the Eastern Province',
+                'Consulting and guidance with field experience for emerging projects, stalled projects, project development and real estate development, from the Eastern Province to all of Saudi Arabia. Live online sessions and payment by Moyasar invoice.',
                 [ORG_EN, FAQ_LD_EN], path='index.html', lang='en') + header('home', 'en', 'index.html') + f'''
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div>
-      <span class="where">{pin}{ADDR_EN}</span>
       <h1 id="h1">We clarify the road before you start, and before a mistake costs you</h1>
       <p class="lead">Consulting and guidance from accumulated field experience, for owners of emerging, stalled and existing projects, and for anyone who wants to build or develop real estate. We guide, supervise and follow up, and we do not execute ourselves.</p>
       <span class="live"><i aria-hidden="true"></i>Live online broadcast</span>
@@ -139,7 +137,7 @@ def index():
 def about():
     sea = '<svg viewBox="0 0 84 68" aria-hidden="true"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 52 H80"/><path class="sea" d="M14 60 H70"/></svg>'
     secs = [
-     ('who', 'About us', f'''<p>{CO_EN} is based in Dammam, in the Eastern Province of Saudi Arabia. It is a platform that aims to contribute consulting, experience and awareness guidance to a segment of the community, drawing on accumulated practical and field experience in several fields.</p>
+     ('who', 'About us', f'''<p>{CO_EN} is based in the Hajar District, in the Eastern Province of Saudi Arabia. It is a platform that aims to contribute consulting, experience and awareness guidance to a segment of the community, drawing on accumulated practical and field experience in several fields.</p>
 <p>We help individuals and owners of emerging projects, develop existing and stalled projects, and accompany real estate developers, so that we see the road more clearly before starting and know the right path in a practical and simple way.</p>
 <div class="place">{sea}<span>{ADDR_EN}. Sessions are held by live online broadcast.</span></div>'''),
      ('what', 'What we offer', '''<p>Consulting with us is not merely referring the client to advisers and specialists. The core awareness and guidance is provided by us from our practical and field experience. When a matter requires a specific specialization or license, we make the client aware of what they need, who they need and when they need them, using specialists and licensed bodies in the technical, engineering, regulatory and legal fields and in government departments.</p>
@@ -158,7 +156,7 @@ def about():
      ('contact', 'Contact us', f'''<p>Address: {ADDR_EN}.</p><ul data-contact></ul><p><span data-legal></span></p>
 <p><a class="btn" href="index.html#start">Start your request</a></p>'''),
     ]
-    doc_page('about.html', 'about', 'About us', f'Get to know {CO_EN} in Dammam: a consulting and guidance platform with field experience for emerging and stalled projects and real estate development.',
+    doc_page('about.html', 'about', 'About us', f'Get to know {CO_EN} in the Eastern Province: a consulting and guidance platform with field experience for emerging and stalled projects and real estate development.',
              'A Saudi platform that provides consulting and awareness guidance, and supervises and follows up but does not execute.', secs, [ORG_EN], lang='en')
 
 # ============================ Privacy ============================
