@@ -24,11 +24,12 @@ GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="
 
 def emblem(label):
     return f'''<svg class="emblem" viewBox="0 0 64 64" role="img" aria-label="{label}"><g filter="url(#rough-s)">
-<circle class="ring" cx="32" cy="32" r="29"/>
-<circle class="mk" cx="45" cy="23" r="10"/>
-<path class="road" d="M10 51 C19 54 22 46 29 44 C36 42 42 41 41 35"/>
-<path d="M30 35 V20 H52 V35 M26 22 L41 8.5 L56 22 M38 35 V27 H44 V35"/>
-<path d="M23 47 V33"/><path class="flag" d="M23 33 L33 37.5 L23 42 Z"/>
+<circle class="mk" cx="38" cy="12" r="9"/>
+<path d="M15 62 C14 44 38 46 33 33 C29 24 36 20 36 14"/>
+<path d="M45 62 C46 48 62 44 51 31 C46 24 42 20 40 14"/>
+<path d="M36 14 H40"/>
+<path class="road" d="M30 62 C30 46 50 46 42 32 C37 24 39 20 38 14"/>
+<path d="M38 14 V2"/><path class="flag" d="M38 2 L49 6.5 L38 11 Z"/>
 </g></svg>'''
 
 def ico(d, extra=''):
@@ -99,7 +100,7 @@ def header(cur='', lang='ar', page='index.html'):
     <a class="brand" href="index.html" aria-label="{aria_home}">
       {emblem(logo_lbl)}
       <span class="brand-text">
-        <span class="wordmark">{brand_word}<svg class="swoosh" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C28 2 58 11 117 4"/></svg></span>
+        <span class="wordmark">{brand_word}<svg class="swoosh" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 6 H117"/></svg></span>
         <span class="co">{company}</span>
       </span>
     </a>

@@ -182,7 +182,7 @@ def privacy():
 <li><b>Specialized and licensed bodies</b>: we do not share your data with them except with your consent and when needed to carry out what we agreed on.</li>
 </ul>
 <p>We may disclose data if a competent regulatory authority requests it under the regulations in force in the Kingdom.</p>'''),
-     ('cookies', 'Cookies and tracking', '''<p>The website does not use tracking cookies or analytics or advertising tools. The fonts used are system fonts and nothing is loaded from third parties. The invoice page that belongs to Moyasar has its own policies.</p>'''),
+     ('cookies', 'Cookies and tracking', '''<p>The website does not use tracking cookies or analytics or advertising tools. The fonts are stored on the website’s own server and are not loaded from third parties. The invoice page that belongs to Moyasar has its own policies.</p>'''),
      ('rights', 'Your rights', '''<p>You have the right to access your personal data and request that it be corrected or destroyed, and to object to its processing, under the Personal Data Protection Law. To exercise any right, contact us: <span data-contact-line></span>. We will respond within a reasonable time.</p>
 <p>Note that invoice data may have to be kept at Moyasar and in our accounting records for a period required by law.</p>'''),
      ('minors', 'Minors', '''<p>Our services are aimed at adults, and we do not knowingly collect data from minors.</p>'''),
