@@ -45,13 +45,14 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .top{display:block;padding-block:.9rem 0}
 .top-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.5rem}
 .brand{display:flex;align-items:center;gap:1.1rem;text-decoration:none;color:var(--ink)}
-.emblem{width:6.6rem;height:6.6rem;flex:none;overflow:visible;color:var(--ink)}
-.emblem *{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.emblem .road{stroke-dasharray:3.6 4.4;stroke-linecap:butt;stroke-width:2}
-.emblem .flag{fill:var(--red);stroke:currentColor;stroke-width:1.6}
-.emblem .mk{fill:var(--sea);stroke:none;mix-blend-mode:multiply}
+.emblem{width:6.2rem;height:6.2rem;flex:none;color:var(--ink);--on-badge:var(--paper)}
+.emblem .badge{fill:currentColor}
+.emblem .way{fill:none;stroke:var(--on-badge);stroke-width:7.4;stroke-linecap:round}
+.emblem .dash{fill:none;stroke:currentColor;stroke-width:1.6;stroke-dasharray:3 3.6}
+.emblem .pin{fill:var(--red)}
+.emblem .dot{fill:var(--on-badge)}
 .brand-text{display:flex;flex-direction:column;align-items:flex-start}
-.wordmark{position:relative;font:700 3.5rem/1.05 var(--f-head);padding-bottom:.4rem}
+.wordmark{position:relative;font:800 3.5rem/1.05 var(--f-head);padding-bottom:.7rem}
 .swoosh{position:absolute;inset-inline:-.2rem;bottom:-.05rem;width:calc(100% + .4rem);height:.7rem;overflow:visible}
 .swoosh path{fill:none;stroke:var(--red);stroke-width:3.5;stroke-linecap:round}
 .co{font:700 1.02rem/1.4 var(--f-body);color:var(--ink);margin-top:.3rem;max-width:15rem}
@@ -64,7 +65,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .nav a[aria-current="page"]{color:var(--red-d)}
 .nav a[aria-current="page"]::after{content:"";position:absolute;inset-inline:.7rem;bottom:-.05rem;height:3px;background:var(--red);border-radius:2px}
 @media(max-width:760px){
-  .emblem{width:4.7rem;height:4.7rem}
+  .emblem{width:4.6rem;height:4.6rem}
   .wordmark{font-size:2.6rem}
   .co{font-size:.9rem}
   .nav{flex-wrap:nowrap;overflow-x:auto;gap:0;scrollbar-width:thin}
@@ -73,8 +74,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
   .top-actions .btn{padding:.4rem 1.1rem}
 }
 .fbrand{display:flex;align-items:center;gap:.9rem}
-.fbrand .emblem{width:3.8rem;height:3.8rem;color:#fff}
-.fbrand .emblem .flag{stroke:#fff}
+.fbrand .emblem{width:3.8rem;height:3.8rem;color:#fff;--on-badge:var(--ink)}
 a.scn{text-decoration:none;color:inherit}
 .tracks-page{padding-top:1rem}
 

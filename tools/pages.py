@@ -23,14 +23,12 @@ GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="
 
 
 def emblem(label):
-    return f'''<svg class="emblem" viewBox="0 0 64 64" role="img" aria-label="{label}"><g filter="url(#rough-s)">
-<circle class="mk" cx="38" cy="12" r="9"/>
-<path d="M15 62 C14 44 38 46 33 33 C29 24 36 20 36 14"/>
-<path d="M45 62 C46 48 62 44 51 31 C46 24 42 20 40 14"/>
-<path d="M36 14 H40"/>
-<path class="road" d="M30 62 C30 46 50 46 42 32 C37 24 39 20 38 14"/>
-<path d="M38 14 V2"/><path class="flag" d="M38 2 L49 6.5 L38 11 Z"/>
-</g></svg>'''
+    return f'''<svg class="emblem" viewBox="0 0 64 64" role="img" aria-label="{label}">
+<rect class="badge" width="64" height="64" rx="15"/>
+<path class="way" d="M18 51 C18 39 46 42 46 30 C46 21 20 26 22 15"/>
+<path class="dash" d="M18 51 C18 39 46 42 46 30 C46 21 20 26 22 15"/>
+<circle class="pin" cx="22" cy="14" r="6.6"/><circle class="dot" cx="22" cy="14" r="2.6"/>
+</svg>'''
 
 def ico(d, extra=''):
     return f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" filter="url(#rough-s)"><path d="{d}"/>{extra}</svg>'
