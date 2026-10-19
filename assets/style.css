@@ -101,7 +101,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .hero .card-text .lead{margin-top:0}
 .hero .card-text .lead+.lead{margin-top:.9rem}
 
-.hero h1{margin-top:0;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.55;text-wrap:balance}
+.hero h1{margin-top:0;font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.7;text-align:right;text-wrap:pretty}
 .lead{margin-top:1rem;max-width:34rem;font-size:1.06rem;color:#2a3558}
 .lead.close{font-weight:700;color:var(--ink)}
 .live{display:inline-flex;align-items:center;gap:.5rem;font:600 1rem var(--f-body)}
