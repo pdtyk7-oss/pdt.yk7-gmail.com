@@ -50,14 +50,16 @@ def index():
         <p class="lead close">So the client knows the nature of the information they rely on before making their future decisions.</p>
       </div>
       <div class="card card-cta">
-        <span class="live"><i aria-hidden="true"></i>Live online broadcast</span>
         <div class="cta-row">
           <span class="cta-wrap"><a class="btn" href="#start">Start your request now</a><span class="note cta-note">{arrow}Start here</span></span>
           <a class="btn wa" href="#" data-wa="Hello, I would like to ask about the services of {CO_EN}.">{WA_ICON}Chat with us on WhatsApp</a>
         </div>
       </div>
     </div>
-    {svg}
+    <div class="figcol">
+      {svg}
+      <div class="card live-box"><span class="live"><i aria-hidden="true"></i>Live online broadcast</span></div>
+    </div>
   </div>
 </section>
 

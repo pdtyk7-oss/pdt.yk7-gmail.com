@@ -261,14 +261,16 @@ def index():
         <p class="lead close">وبذلك يعرف العميل طبيعة المعلومة التي يعتمد عليها قبل اتخاذ قراراته المستقبلية.</p>
       </div>
       <div class="card card-cta">
-        <span class="live"><i aria-hidden="true"></i>بث مباشر أونلاين</span>
         <div class="cta-row">
           <span class="cta-wrap"><a class="btn" href="#start">ابدأ طلبك الآن</a><span class="note cta-note">{arrow}ابدأ من هنا</span></span>
           <a class="btn wa" href="#" data-wa="السلام عليكم، أرغب في الاستفسار عن خدمات {CO}.">{WA_ICON}تحدّث معنا عبر واتساب</a>
         </div>
       </div>
     </div>
-    {svg}
+    <div class="figcol">
+      {svg}
+      <div class="card live-box"><span class="live"><i aria-hidden="true"></i>بث مباشر أونلاين</span></div>
+    </div>
   </div>
 </section>
 

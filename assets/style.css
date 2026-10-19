@@ -89,20 +89,23 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 
 /* ---------- البطل ---------- */
 .hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(3rem,6vw,5rem)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,3vw,3rem);align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,3vw,3rem);align-items:start}
+.hero .figcol{display:flex;flex-direction:column;gap:1rem;align-self:stretch}
+.hero .figcol .pathfig{margin-top:3.6rem}
 .hero-col{display:flex;flex-direction:column;gap:1.1rem}
 .hero .card{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:clamp(1.1rem,2.6vw,1.8rem)}
-.hero .card-title{border-color:var(--ink)}
+.hero .card-title{background:transparent;border:0;border-radius:0;padding:0}
 .hero .card-title h1{margin:0}
 .hero .card-cta{display:flex;flex-direction:column;gap:.9rem}
 .hero .card-cta .cta-row{margin-top:0}
 .hero .card-text .lead{margin-top:0}
 .hero .card-text .lead+.lead{margin-top:.9rem}
 
-.hero h1{margin-top:0;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.45;text-wrap:balance}
+.hero h1{margin-top:0;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.55;text-wrap:balance}
 .lead{margin-top:1rem;max-width:34rem;font-size:1.06rem;color:#2a3558}
 .lead.close{font-weight:700;color:var(--ink)}
-.live{display:inline-flex;align-items:center;gap:.5rem;margin-top:.7rem;font:600 1rem var(--f-body)}
+.live{display:inline-flex;align-items:center;gap:.5rem;font:600 1rem var(--f-body)}
+.live-box{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:.7rem 1.1rem;text-align:center;justify-content:center;display:flex}
 .live i{width:.7rem;height:.7rem;border-radius:50%;background:var(--red);display:inline-block;animation:blink 2.4s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem;margin-top:1.6rem}
@@ -112,17 +115,17 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .cta-note svg path{fill:none;stroke:var(--pen);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .pathfig{width:100%;height:auto;overflow:visible}
 .pathfig .ln{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.pathfig .trail{stroke-dasharray:2 11;stroke-width:3.5}
-.pathfig .pen{fill:none;stroke:var(--pen);stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.8s .3s ease-in-out forwards}
+.pathfig .trail{stroke-dasharray:2 12;stroke-width:3.5;opacity:.45}
+.pathfig .pen{fill:none;stroke:var(--pen);stroke-width:4.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.8s .4s ease-in-out forwards}
 .pathfig .flag{fill:var(--red);stroke:var(--ink);stroke-width:2;stroke-linejoin:round;opacity:0;animation:fade .5s ease-out forwards}
 .pathfig .glow{fill:var(--light);stroke:none;opacity:.9}
 .pathfig .ray{stroke:#E9A100}
 .pathfig text{font:700 20px var(--f-body);fill:var(--ink)}
 .pathfig .lab{opacity:0;animation:fade .6s ease-out forwards}
-.pathfig .medal{opacity:0;animation:fade .7s 2.6s ease-out forwards}
+.pathfig .medal{opacity:0;animation:fade .8s 3.6s ease-out forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade{to{opacity:1}}
-@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.pathfig{max-width:440px;margin-inline:auto}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .figcol .pathfig{margin-top:0;max-width:440px;margin-inline:auto}}
 
 /* ---------- عناوين الأقسام ---------- */
 h2{font-size:clamp(1.55rem,3.1vw,2.2rem);line-height:1.35;max-width:26ch;text-wrap:balance}
