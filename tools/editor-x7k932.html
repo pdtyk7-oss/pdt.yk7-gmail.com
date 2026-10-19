@@ -45,6 +45,8 @@
   dialog textarea{min-height:40vh;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;direction:ltr;text-align:left}
   .ok{color:var(--wa);font-weight:700}
   .save-state{font-size:.85rem;color:#c9d3ea}
+  @font-face{font-family:'Amiri';src:local('Amiri'),url(../assets/fonts/amiri-arabic-subset.woff2) format('woff2');font-weight:400;font-display:swap}
+  body.naskh input[type=text], body.naskh textarea{font-family:"DecoType Naskh","Amiri",serif;font-size:1.12rem;line-height:2}
 </style>
 <script>
 (function(){
@@ -65,6 +67,7 @@
     <span class="save-state" id="saveState"></span>
     <button class="ghost sm" id="btnReload">استرجاع آخر حفظ</button>
     <button class="ghost sm" id="btnReset">العودة للأصل</button>
+    <button class="ghost sm" id="btnFont">خط النسخ (DecoType Naskh)</button>
     <button class="wa sm" id="btnTranslate">ترجم للإنجليزية (Google)</button>
     <button id="btnExport">تصدير للرفع</button>
   </div>
@@ -352,6 +355,18 @@ $('#btnTranslate').onclick=()=>{
   const text=parts.filter(Boolean).join('\n\n');
   window.open('https://translate.google.com/?sl=ar&tl=en&op=translate&text='+encodeURIComponent(text.slice(0,4000)),'_blank');
 };
+(function(){
+  var on = localStorage.getItem('masar_editor_naskh')==='1';
+  if(on) document.body.classList.add('naskh');
+  var btn=document.getElementById('btnFont');
+  function label(){ btn.textContent = document.body.classList.contains('naskh') ? 'خط النظام' : 'خط النسخ (DecoType Naskh)'; }
+  label();
+  btn.addEventListener('click', function(){
+    document.body.classList.toggle('naskh');
+    localStorage.setItem('masar_editor_naskh', document.body.classList.contains('naskh') ? '1':'0');
+    label();
+  });
+})();
 boot();
 </script>
 </body>
