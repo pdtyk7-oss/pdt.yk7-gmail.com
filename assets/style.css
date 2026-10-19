@@ -92,7 +92,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:.5rem clamp(1rem,3vw,3rem);align-items:start}
 .hero .card-title{grid-column:1 / -1}
 .hero .figcol{display:flex;flex-direction:column;gap:.8rem;align-self:stretch}
-.hero .figcol .pathfig{margin-top:1.4rem}
+.hero .figcol .pathfig{margin-top:0}
 
 .hero-col{display:flex;flex-direction:column;gap:.8rem}
 .hero .card{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:clamp(1.1rem,2.6vw,1.8rem)}
