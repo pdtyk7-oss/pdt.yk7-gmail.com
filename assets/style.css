@@ -90,8 +90,9 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 /* ---------- البطل ---------- */
 .hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(3rem,6vw,5rem)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,3vw,3rem);align-items:center}
-.hero h1{margin-top:.6rem;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.3;text-wrap:balance}
-.lead{margin-top:1rem;max-width:34rem;font-size:1.1rem;color:#2a3558}
+.hero h1{margin-top:.6rem;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.45;text-wrap:balance}
+.lead{margin-top:1rem;max-width:34rem;font-size:1.06rem;color:#2a3558}
+.lead.close{font-weight:700;color:var(--ink)}
 .live{display:inline-flex;align-items:center;gap:.5rem;margin-top:.7rem;font:600 1rem var(--f-body)}
 .live i{width:.7rem;height:.7rem;border-radius:50%;background:var(--red);display:inline-block;animation:blink 2.4s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
