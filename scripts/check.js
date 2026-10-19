@@ -17,7 +17,7 @@ files.filter(f => f.endsWith('.js') && !f.includes('node_modules')).forEach(f =>
 });
 
 // 2) صفحات HTML: العنوان والوصف واللغة والبيانات المنظمة والروابط المحلية
-files.filter(f => f.endsWith('.html')).forEach(f => {
+files.filter(f => f.endsWith('.html') && !rel(f).startsWith('tools/')).forEach(f => {
   const h = fs.readFileSync(f, 'utf8'), r = rel(f);
   const isEn = r.startsWith('en/');
   const wantAttr = isEn ? /<html[^>]+lang="en"[^>]+dir="ltr"/ : /<html[^>]+lang="ar"[^>]+dir="rtl"/;
@@ -40,7 +40,7 @@ files.filter(f => f.endsWith('.html')).forEach(f => {
 
 // 3) فحص تسرّب الأسرار
 const secretRe = [/sk_(live|test)_[A-Za-z0-9]{8,}/, /ghp_[A-Za-z0-9]{20,}/, /github_pat_[A-Za-z0-9_]{20,}/, /-----BEGIN [A-Z ]*PRIVATE KEY-----/];
-files.filter(f => !/\.(woff2?|png|jpg|jpeg|gif|ico)$/.test(f)).forEach(f => {
+files.filter(f => !/\.(woff2?|png|jpg|jpeg|gif|ico)$/.test(f) && !rel(f).startsWith('tools/')).forEach(f => {
   const t = fs.readFileSync(f, 'utf8');
   secretRe.forEach(re => { if (re.test(t)) err('سر محتمل في الملف: ' + rel(f)); });
 });

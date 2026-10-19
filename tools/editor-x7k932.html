@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة تحرير مسار</title>
+<style>
+  :root{--ink:#1A2547;--pen:#2B4FA8;--red:#CF3A2B;--red-d:#B3291B;--wa:#1B7F46;--paper:#F2F4F0;--sheet:#fff;--line:#C9CFDA;--muted:#566073;--r:10px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 system-ui,"Segoe UI",Tahoma,Arial,sans-serif}
+  header{position:sticky;top:0;z-index:10;background:var(--ink);color:#fff;padding:.8rem 1.2rem;display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:space-between}
+  header h1{font-size:1.15rem;margin:0}
+  header .tools{display:flex;gap:.5rem;flex-wrap:wrap}
+  button{font:inherit;cursor:pointer;border-radius:8px;border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:.4rem .9rem}
+  button.ghost{background:transparent;color:#fff;border-color:#8893ad}
+  button.sm{padding:.25rem .6rem;font-size:.85rem}
+  button.danger{background:var(--red-d);border-color:var(--red-d)}
+  button.wa{background:var(--wa);border-color:var(--wa)}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  main{max-width:900px;margin:1.2rem auto;padding:0 1rem 4rem}
+  .intro{background:#FFF7E6;border:1.5px solid #E8C96b;border-radius:var(--r);padding:.8rem 1rem;margin-bottom:1.2rem;font-size:.95rem}
+  .block{background:var(--sheet);border:1.5px solid var(--line);border-radius:var(--r);margin-bottom:1rem;overflow:hidden}
+  .block.locked{border-style:dashed}
+  .bhead{display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem;background:#EEF1F6;border-bottom:1.5px solid var(--line)}
+  .num{display:grid;place-items:center;min-width:2rem;height:2rem;background:var(--ink);color:#fff;border-radius:50%;font-weight:700}
+  .btitle{font-weight:700;flex:1}
+  .btype{font-size:.8rem;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:6px;padding:.05rem .5rem}
+  .lock{font-size:.8rem;color:var(--red-d)}
+  .bbody{padding:.9rem}
+  .bbody.collapsed{display:none}
+  label{display:block;font-weight:700;font-size:.92rem;margin:.7rem 0 .2rem}
+  label:first-child{margin-top:0}
+  input[type=text],textarea{width:100%;font:inherit;padding:.5rem .7rem;border:1.5px solid var(--line);border-radius:8px;background:#fff}
+  textarea{min-height:5rem;resize:vertical}
+  input:focus,textarea:focus{outline:0;border-color:var(--pen);box-shadow:0 0 0 3px rgba(43,79,168,.2)}
+  .rowbtns{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+  .list-item{display:flex;gap:.5rem;align-items:flex-start;margin-top:.5rem}
+  .list-item textarea{min-height:2.6rem}
+  .list-item .x{flex:none}
+  .actions{display:flex;gap:.4rem;flex-wrap:wrap}
+  .hint{color:var(--muted);font-size:.85rem;margin-top:.3rem}
+  .addbar{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:1.4rem 0}
+  dialog{border:0;border-radius:var(--r);padding:0;max-width:680px;width:92%}
+  dialog .dlg{padding:1.2rem}
+  dialog textarea{min-height:40vh;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;direction:ltr;text-align:left}
+  .ok{color:var(--wa);font-weight:700}
+  .save-state{font-size:.85rem;color:#c9d3ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>لوحة تحرير مسار — الصفحة الرئيسية</h1>
+  <div class="tools">
+    <span class="save-state" id="saveState"></span>
+    <button class="ghost sm" id="btnReload">استرجاع آخر حفظ</button>
+    <button class="ghost sm" id="btnReset">العودة للأصل</button>
+    <button class="wa sm" id="btnTranslate">ترجم للإنجليزية (Google)</button>
+    <button id="btnExport">تصدير للرفع</button>
+  </div>
+</header>
+<main>
+  <div class="intro">
+    عدّل النصوص في كل قالب، وأعد ترتيب القوالب بالأسهم، وأضف أو احذف القوالب النصية.
+    القوالب المعلّمة بقفل مرتبطة بالدفع أو الحجز، فتُحرّر نصوصها فقط ولا تُحذف.
+    يُحفظ عملك في هذا المتصفح تلقائياً. عند الانتهاء اضغط <b>تصدير للرفع</b> وأرسل الملف لأرفعه على الموقع وأترجمه.
+  </div>
+  <div id="blocks"></div>
+  <div class="addbar">
+    <button class="ghost sm" style="color:var(--ink);border-color:var(--ink)" data-add="text">+ قالب نص</button>
+    <button class="ghost sm" style="color:var(--ink);border-color:var(--ink)" data-add="quote">+ قالب اقتباس</button>
+    <button class="ghost sm" style="color:var(--ink);border-color:var(--ink)" data-add="scenarios">+ قالب جُمل اختيار</button>
+  </div>
+</main>
+
+<dialog id="exportDlg"><div class="dlg">
+  <h2 style="margin-top:0">تصدير المحتوى</h2>
+  <p>انسخ كل النص بالأسفل وأرسله لي في المحادثة لأرفعه على الموقع، أو احفظه ملفاً باسم <code>home.ar.json</code>.</p>
+  <textarea id="exportText" readonly></textarea>
+  <div class="rowbtns" style="margin-top:.8rem">
+    <button id="btnCopy">نسخ الكل</button>
+    <button class="ghost" style="color:var(--ink);border-color:var(--ink)" id="btnDownload">حفظ ملف</button>
+    <button class="ghost" style="color:var(--ink);border-color:var(--ink)" id="btnCloseDlg">إغلاق</button>
+    <span id="copyOk" class="ok"></span>
+  </div>
+</div></dialog>
+
+<script>
+const LOCKED = {start:'مرتبط بالدفع', faq:'يُحرّر في صفحة الأسئلة', method:'', who:''};
+const CANNOT_DELETE = new Set(['start','faq','hero']);
+const LABELS = {
+  heading:'العنوان', sub:'سطر فرعي', para1:'الفقرة الأولى', para2:'الفقرة الثانية',
+  live:'شارة البث', cta_primary:'زر الطلب', cta_note:'ملاحظة فوق الزر', cta_whatsapp:'زر واتساب',
+  stamp:'اللافتة', do_title:'عنوان «ما نقوم به»', dont_title:'عنوان «ما لا نقوم به»',
+  after:'سطر ختامي', quote:'الاقتباس', text:'نص', link:'نص الرابط', note:'تنويه'
+};
+const EMPTY = {
+  text:{__type:'text', fields:{heading:'عنوان جديد', body:'اكتب النص هنا.'}},
+  quote:{__type:'quote', fields:{quote:'اقتباس جديد', text:'شرح الاقتباس.', link:'تعرّف علينا أكثر'}},
+  scenarios:{__type:'scenarios', fields:{heading:'عنوان القسم', sub:'سطر فرعي', items:[{key:'startup', q:'جملة اختيار', t:'المسار'}]}}
+};
+const KEY='masar_home_ar_v1';
+let ORIGINAL=null, data=null;
+
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const e=document.createElement(t); if(c)e.className=c; if(x!=null)e.textContent=x; return e;};
+
+const INLINE_CONTENT = {
+  "lang": "ar",
+  "dir": "rtl",
+  "blocks": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "title": "قسم البطل",
+      "fields": {
+        "heading": "الخبرة عندما تتحوّل إلى معرفة ويستفيد منها الآخرون، تصبح أثراً قيّماً يختصر الطريق ويخدم الأجيال القادمة",
+        "para1": "هي منصة نسعى إلى نقل الخبرة العملية الميدانية الواسعة والمتراكمة بصورة عملية مبسطة، ومساعدة ودعم أفراد المجتمع وأصحاب المشاريع على رؤية الطريق بصورة أوضح قبل البدء، وأثناء التطوير، وعند مواجهة التعثر، لتجنب الأخطاء والخسائر المبكرة في مشروع أو التزام مالي أو تنفيذي.",
+        "para2": "وبذلك يعرف العميل طبيعة المعلومة التي يعتمد عليها قبل اتخاذ قراراته المستقبلية.",
+        "live": "بث مباشر أونلاين",
+        "cta_primary": "ابدأ طلبك الآن",
+        "cta_note": "ابدأ من هنا",
+        "cta_whatsapp": "تحدّث معنا عبر واتساب"
+      }
+    },
+    {
+      "id": "who",
+      "type": "scenarios",
+      "title": "أيّ هذه الجمل تشبه وضعك؟",
+      "fields": {
+        "heading": "أيّ هذه الجمل تشبه وضعك؟",
+        "sub": "اختر الأقرب إليك، وننقلك مباشرة إلى المسار المناسب في نموذج الطلب.",
+        "items": [
+          {
+            "key": "startup",
+            "q": "عندي فكرة مشروع ولا أعرف هل تستحق أن أبدأ بها",
+            "t": "المشاريع الناشئة"
+          },
+          {
+            "key": "develop",
+            "q": "مشروعي قائم لكن أداءه لا يرضيني وأريد تطويره",
+            "t": "تطوير المشاريع"
+          },
+          {
+            "key": "stalled",
+            "q": "مشروعي تعثّر ولا أعرف السبب الحقيقي",
+            "t": "المشاريع المتعثرة"
+          },
+          {
+            "key": "realestate",
+            "q": "أريد أن أبني أو أطوّر عقاراً وأخشى الأخطاء والتكاليف غير الضرورية",
+            "t": "التطوير العقاري"
+          }
+        ]
+      }
+    },
+    {
+      "id": "role",
+      "type": "two-panels",
+      "title": "دورنا: ما نقوم به وما لا نقوم به",
+      "fields": {
+        "heading": "دورنا محدد وواضح: توعية وإشراف، لا تنفيذ",
+        "sub": "«{CO}» جهة إرشاد وتوعية. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.",
+        "stamp": "نُشرف ولا ننفّذ",
+        "do_title": "ما نقوم به",
+        "do": [
+          "نفهم احتياجك ونحلل وضعك وإمكانياتك.",
+          "نوضح الخيارات المتاحة والمخاطر المحتملة قبل أي قرار.",
+          "نُرشدك إلى ما تحتاجه، ومن تحتاجه، ومتى تحتاجه.",
+          "نُشرف ونتابع على جهة التنفيذ حسب الاتفاق المبرم."
+        ],
+        "dont_title": "ما لا نقوم به",
+        "dont": [
+          "لا ننفّذ الأعمال بأنفسنا نهائياً.",
+          "لا نحل محل المكتب الهندسي، ولا نمارس الأعمال الهندسية المرخصة بدلاً عنه.",
+          "لا نجعل رأينا بديلاً عن رأي الجهة الفنية أو النظامية أو القانونية المرخصة."
+        ]
+      }
+    },
+    {
+      "id": "method",
+      "type": "kinds",
+      "title": "أنواع المعلومات",
+      "fields": {
+        "heading": "نبدأ بفهم احتياجك، ثم نقول لك أيّ نوع من المعلومات بين يديك",
+        "sub": "نحلل الوضع ونوضح الخيارات، ونميّز دائماً بين أربعة أنواع من المعلومات:",
+        "items": [
+          "معلومة تحتاج إلى تحقق",
+          "معلومة فنية أو هندسية",
+          "معلومة نظامية أو قانونية",
+          "توصية تجارية"
+        ],
+        "after": "وبذلك تعرف طبيعة المعلومة التي تعتمد عليها قبل أن تتخذ قراراتك المستقبلية."
+      }
+    },
+    {
+      "id": "quote",
+      "type": "quote",
+      "title": "رسالتنا",
+      "fields": {
+        "quote": "الخبرة عندما تتحول إلى معرفة ويستفيد منها الآخرون، تصبح قيمة.",
+        "text": "نسعى إلى نقل الخبرة بصورة عملية ومبسطة، ومساعدة أفراد المجتمع وأصحاب المشاريع على رؤية الطريق بصورة أوضح قبل البدء، وأثناء التطوير، وعند مواجهة التعثر.",
+        "link": "تعرّف علينا أكثر"
+      }
+    },
+    {
+      "id": "start",
+      "type": "request-form",
+      "title": "نموذج الطلب",
+      "fields": {
+        "heading": "ابدأ طلبك في أربع خطوات",
+        "sub": "اختر المسار والمرحلة، وأدخل بياناتك، ثم ننقلك إلى فاتورة رسمية على صفحة ميسر المعتمدة تدفع منها. وإن كانت المرحلة «حسب الاتفاق» نرسل طلبك عبر واتساب ونتواصل معك لتحديد التفاصيل."
+      }
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "title": "الأسئلة الشائعة",
+      "fields": {
+        "heading": "أسئلة يسألها العملاء قبل التسجيل",
+        "note": "الأسئلة نفسها تُحرّر في صفحة الأسئلة الشائعة المشتركة"
+      }
+    }
+  ]
+};
+async function boot(){
+  ORIGINAL = structuredClone(INLINE_CONTENT);
+  const saved = localStorage.getItem(KEY);
+  data = saved ? JSON.parse(saved) : structuredClone(ORIGINAL);
+  normalize(); render();
+}
+function normalize(){ data.blocks.forEach(b=>{ if(!b.__type) b.__type=b.type; }); }
+function save(){ localStorage.setItem(KEY, JSON.stringify(data)); flash('✔ حُفظ في المتصفح'); }
+function flash(t){ $('#saveState').textContent=t; clearTimeout(flash._t); flash._t=setTimeout(()=>$('#saveState').textContent='',1600); }
+
+function field(b, key, val, multiline){
+  const wrap=el('div');
+  wrap.appendChild(el('label', null, LABELS[key]||key));
+  const inp = multiline ? el('textarea') : el('input');
+  if(!multiline) inp.type='text';
+  inp.value = val;
+  inp.addEventListener('input', ()=>{ b.fields[key]=inp.value; save(); });
+  wrap.appendChild(inp);
+  return wrap;
+}
+function listEditor(b, key, render){
+  const wrap=el('div');
+  wrap.appendChild(el('label', null, key==='do'?'نقاط «ما نقوم به»':key==='dont'?'نقاط «ما لا نقوم به»':key==='items'?'العناصر':key));
+  b.fields[key].forEach((item, i)=>{
+    const row=el('div','list-item');
+    const ta=el('textarea'); ta.value = typeof item==='string'?item:(item.q||'');
+    ta.addEventListener('input', ()=>{ if(typeof b.fields[key][i]==='string') b.fields[key][i]=ta.value; else b.fields[key][i].q=ta.value; save(); });
+    const x=el('button','danger sm x','حذف'); x.onclick=()=>{ b.fields[key].splice(i,1); save(); render(); };
+    row.appendChild(ta); row.appendChild(x); wrap.appendChild(row);
+  });
+  const add=el('button','ghost sm','+ إضافة'); add.style.cssText='color:var(--ink);border-color:var(--ink);margin-top:.5rem';
+  add.onclick=()=>{ const v = b.fields[key][0] && typeof b.fields[key][0]!=='string' ? {key:'startup',q:'جملة جديدة',t:'المسار'} : 'نقطة جديدة'; b.fields[key].push(v); save(); render(); };
+  wrap.appendChild(add);
+  return wrap;
+}
+
+function render(){
+  const root=$('#blocks'); root.innerHTML='';
+  data.blocks.forEach((b, i)=>{
+    const card=el('div','block'+(LOCKED[b.id]!==undefined && CANNOT_DELETE.has(b.id)?' locked':''));
+    const head=el('div','bhead');
+    head.appendChild(el('span','num', i+1));
+    head.appendChild(el('span','btitle', b.title || b.id));
+    head.appendChild(el('span','btype', ({hero:'بطل',scenarios:'جُمل',['two-panels']:'لوحتان',kinds:'أنواع',quote:'اقتباس',['request-form']:'نموذج',faq:'أسئلة',text:'نص'})[b.__type]||b.__type));
+    if(CANNOT_DELETE.has(b.id)) head.appendChild(el('span','lock','🔒'));
+    const up=el('button','ghost sm','▲'); up.style.cssText='color:var(--ink);border-color:var(--ink)'; up.disabled=i===0; up.onclick=()=>{ [data.blocks[i-1],data.blocks[i]]=[data.blocks[i],data.blocks[i-1]]; save(); render(); };
+    const dn=el('button','ghost sm','▼'); dn.style.cssText='color:var(--ink);border-color:var(--ink)'; dn.disabled=i===data.blocks.length-1; dn.onclick=()=>{ [data.blocks[i+1],data.blocks[i]]=[data.blocks[i],data.blocks[i+1]]; save(); render(); };
+    const tog=el('button','ghost sm','✎'); tog.style.cssText='color:var(--ink);border-color:var(--ink)';
+    head.appendChild(up); head.appendChild(dn); head.appendChild(tog);
+    if(!CANNOT_DELETE.has(b.id)){ const del=el('button','danger sm','حذف'); del.onclick=()=>{ if(confirm('حذف هذا القالب؟')){ data.blocks.splice(i,1); save(); render(); } }; head.appendChild(del); }
+    card.appendChild(head);
+
+    const body=el('div','bbody');
+    const f=b.fields||{};
+    if(b.__type==='hero'){
+      body.appendChild(field(b,'heading',f.heading,true));
+      body.appendChild(field(b,'para1',f.para1,true));
+      body.appendChild(field(b,'para2',f.para2,true));
+      body.appendChild(field(b,'live',f.live));
+      body.appendChild(field(b,'cta_primary',f.cta_primary));
+      body.appendChild(field(b,'cta_note',f.cta_note));
+      body.appendChild(field(b,'cta_whatsapp',f.cta_whatsapp));
+    } else if(b.__type==='scenarios'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(field(b,'sub',f.sub,true));
+      body.appendChild(listEditor(b,'items',render));
+    } else if(b.__type==='two-panels'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(field(b,'sub',f.sub,true));
+      body.appendChild(field(b,'stamp',f.stamp));
+      body.appendChild(field(b,'do_title',f.do_title));
+      body.appendChild(listEditor(b,'do',render));
+      body.appendChild(field(b,'dont_title',f.dont_title));
+      body.appendChild(listEditor(b,'dont',render));
+    } else if(b.__type==='kinds'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(field(b,'sub',f.sub,true));
+      body.appendChild(listEditor(b,'items',render));
+      body.appendChild(field(b,'after',f.after,true));
+    } else if(b.__type==='quote'){
+      body.appendChild(field(b,'quote',f.quote,true));
+      body.appendChild(field(b,'text',f.text,true));
+      body.appendChild(field(b,'link',f.link));
+    } else if(b.__type==='request-form'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(field(b,'sub',f.sub,true));
+      body.appendChild(Object.assign(el('p','hint'),{textContent:'خطوات النموذج نفسها ثابتة لأنها مرتبطة بالدفع.'}));
+    } else if(b.__type==='faq'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(Object.assign(el('p','hint'),{textContent:'الأسئلة والأجوبة تُحرّر في قسمها الخاص لاحقاً.'}));
+    } else if(b.__type==='text'){
+      body.appendChild(field(b,'heading',f.heading));
+      body.appendChild(field(b,'body',f.body,true));
+    }
+    tog.onclick=()=>body.classList.toggle('collapsed');
+    card.appendChild(body);
+    root.appendChild(card);
+  });
+}
+
+document.querySelectorAll('[data-add]').forEach(btn=>btn.onclick=()=>{
+  const tmpl=structuredClone(EMPTY[btn.dataset.add]);
+  tmpl.id='custom-'+Date.now().toString(36);
+  tmpl.title='قالب جديد';
+  data.blocks.push(tmpl); save(); render();
+  window.scrollTo(0, document.body.scrollHeight);
+});
+
+$('#btnExport').onclick=()=>{ const out=structuredClone(data); out.blocks.forEach(b=>{b.type=b.__type; delete b.__type;}); $('#exportText').value=JSON.stringify(out,null,2); $('#exportDlg').showModal(); };
+$('#btnCloseDlg').onclick=()=>$('#exportDlg').close();
+$('#btnCopy').onclick=async()=>{ await navigator.clipboard.writeText($('#exportText').value); $('#copyOk').textContent='نُسخ ✔'; setTimeout(()=>$('#copyOk').textContent='',1600); };
+$('#btnDownload').onclick=()=>{ const blob=new Blob([$('#exportText').value],{type:'application/json'}); const a=el('a'); a.href=URL.createObjectURL(blob); a.download='home.ar.json'; a.click(); };
+$('#btnReload').onclick=()=>{ const s=localStorage.getItem(KEY); if(s){ data=JSON.parse(s); normalize(); render(); flash('أُعيد آخر حفظ'); } };
+$('#btnReset').onclick=()=>{ if(confirm('العودة إلى النص الأصلي وإلغاء تعديلاتك؟')){ data=structuredClone(ORIGINAL); normalize(); localStorage.removeItem(KEY); render(); } };
+$('#btnTranslate').onclick=()=>{
+  const parts=[]; data.blocks.forEach(b=>Object.values(b.fields||{}).forEach(v=>{ if(typeof v==='string') parts.push(v); else if(Array.isArray(v)) v.forEach(it=>parts.push(typeof it==='string'?it:it.q)); }));
+  const text=parts.filter(Boolean).join('\n\n');
+  window.open('https://translate.google.com/?sl=ar&tl=en&op=translate&text='+encodeURIComponent(text.slice(0,4000)),'_blank');
+};
+boot();
+</script>
+</body>
+</html>

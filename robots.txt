@@ -3,5 +3,6 @@ Allow: /
 Disallow: /booking.html
 Disallow: /en/booking.html
 Disallow: /api/
+Disallow: /tools/
 
 Sitemap: https://www.masarpdt-sa.com/sitemap.xml
