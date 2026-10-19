@@ -89,9 +89,10 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 
 /* ---------- البطل ---------- */
 .hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(3rem,6vw,5rem)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,3vw,3rem);align-items:start}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:1rem clamp(1rem,3vw,3rem);align-items:start}
+.hero .card-title{grid-column:1 / -1}
 .hero .figcol{display:flex;flex-direction:column;gap:1rem;align-self:stretch}
-.hero .figcol .pathfig{margin-top:3.6rem}
+.hero .figcol .pathfig{margin-top:0}
 .hero-col{display:flex;flex-direction:column;gap:1.1rem}
 .hero .card{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:clamp(1.1rem,2.6vw,1.8rem)}
 .hero .card-title{background:transparent;border:0;border-radius:0;padding:0}
@@ -101,7 +102,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .hero .card-text .lead{margin-top:0}
 .hero .card-text .lead+.lead{margin-top:.9rem}
 
-.hero h1{margin-top:0;font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.7;text-align:right;text-wrap:pretty}
+.hero h1{margin-top:0;font-size:clamp(1.3rem,2.3vw,2rem);line-height:1.6;text-align:right;text-wrap:balance}
 .lead{margin-top:1rem;max-width:34rem;font-size:1.06rem;color:#2a3558}
 .lead.close{font-weight:700;color:var(--ink)}
 .live{display:inline-flex;align-items:center;gap:.5rem;font:600 1rem var(--f-body)}

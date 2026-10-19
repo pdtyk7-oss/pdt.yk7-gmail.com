@@ -43,8 +43,8 @@ def index():
                 [ORG_EN, FAQ_LD_EN], path='index.html', lang='en') + header('home', 'en', 'index.html') + f'''
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
+    <div class="card card-title"><h1 id="h1">Experience, when it turns into knowledge that others benefit from, becomes a lasting value that shortens the road and serves the generations to come</h1></div>
     <div class="hero-col">
-      <div class="card card-title"><h1 id="h1">Experience, when it turns into knowledge that others benefit from, becomes a lasting value that shortens the road and serves the generations to come</h1></div>
       <div class="card card-text">
         <p class="lead">We are a platform that works to pass on wide, accumulated field experience in a simple, practical way, and to help and support members of the community and project owners see the road more clearly before they start, while they develop, and when they face a stall, so they avoid early mistakes and losses in a project or a financial or executive commitment.</p>
         <p class="lead close">So the client knows the nature of the information they rely on before making their future decisions.</p>
