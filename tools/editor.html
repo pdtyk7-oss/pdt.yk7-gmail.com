@@ -46,6 +46,17 @@
   .ok{color:var(--wa);font-weight:700}
   .save-state{font-size:.85rem;color:#c9d3ea}
 </style>
+<script>
+(function(){
+  var EXPIRES = "2026-10-21T12:35:36Z";               // تنتهي صلاحية اللوحة تلقائياً بعد هذا الوقت (UTC)
+  if (new Date() > new Date(EXPIRES)) {
+    document.documentElement.innerHTML =
+      '<body style="margin:0;display:grid;place-items:center;min-height:100vh;background:#1A2547;color:#fff;font:700 1.3rem/1.9 system-ui,Tahoma,Arial;text-align:center;direction:rtl">'
+      + '<div style="padding:2rem;max-width:34rem">انتهت صلاحية هذه اللوحة المؤقتة.<br><span style="font-weight:400;font-size:1rem;color:#C9D3EA">اطلب من المحرّر إعادة تفعيلها عند الحاجة إلى التعديل.</span></div></body>';
+    throw new Error('editor expired');
+  }
+})();
+</script>
 </head>
 <body>
 <header>
