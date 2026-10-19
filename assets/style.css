@@ -1,5 +1,5 @@
 /* ==========================================================
-   مسار المشاريع والتطوير APT
+   مسار المشاريع والتطوير
    نظام بصري هندسي: خطوط مستقيمة، زوايا منتظمة، ألوان مسطحة.
    الخط: Cairo (محلي على خادم الموقع، لا يُحمَّل من أي طرف خارجي).
    ========================================================== */
@@ -47,10 +47,10 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .brand{display:flex;align-items:center;gap:1.1rem;text-decoration:none;color:var(--ink)}
 .emblem{width:7.6rem;height:7.6rem;flex:none}
 .brand-text{display:flex;flex-direction:column;align-items:flex-start}
-.wordmark{position:relative;font:800 3.5rem/1.05 var(--f-head);padding-bottom:.7rem}
+.wordmark{position:relative;display:inline-block;font:900 2.3rem/1.25 var(--f-head);padding-bottom:.8rem;max-width:17rem;text-wrap:balance}
+:lang(ar) .wordmark{max-width:none}
 .swoosh{position:absolute;inset-inline:-.2rem;bottom:-.05rem;width:calc(100% + .4rem);height:.7rem;overflow:visible}
 .swoosh path{fill:none;stroke:var(--sun);stroke-width:3.5;stroke-linecap:round}
-.co{font:700 1.02rem/1.4 var(--f-body);margin-top:.3rem;max-width:15rem}
 .top-actions{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
 .nav{display:flex;flex-wrap:wrap;align-items:stretch;gap:.2rem .5rem;margin-top:.9rem;padding:.55rem 0 .7rem;border-top:1.5px solid var(--line-2);border-bottom:2px solid var(--ink)}
 .nav a{position:relative;display:flex;align-items:center;gap:.55rem;padding:.45rem .95rem;color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem;border-radius:var(--r-sm)}
@@ -65,8 +65,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .lang svg *{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 @media(max-width:760px){
   .emblem{width:5.4rem;height:5.4rem}
-  .wordmark{font-size:2.6rem}
-  .co{font-size:.9rem}
+  .wordmark{font-size:1.55rem}
   .nav{flex-wrap:nowrap;overflow-x:auto;gap:0;scrollbar-width:thin}
   .nav a{flex-direction:column;justify-content:flex-start;gap:.15rem;flex:1 1 0;min-width:3.4rem;padding:.4rem .15rem;font-size:.74rem;line-height:1.35;text-align:center}
   .nav a .ico{width:1.7rem;height:1.7rem}
@@ -74,7 +73,11 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 }
 
 /* ---------- أزرار ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.65rem 1.6rem;font:700 1rem/1.5 var(--f-body);color:#fff;background:var(--ink);border:2px solid var(--ink);border-radius:var(--r-sm);cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s,color .15s}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.65rem 1.6rem;font:700 1rem/1.5 var(--f-body);color:#fff;background:var(--ink);border:2px solid var(--ink);border-radius:var(--r-sm);cursor:pointer;text-decoration:none;box-shadow:0 1px 2px rgba(26,37,71,.25);transition:background .15s,border-color .15s,color .15s,box-shadow .15s,transform .15s}
+.btn>*{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0 0 50%;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0));pointer-events:none}
+.btn:hover{box-shadow:0 4px 12px rgba(26,37,71,.28);transform:translateY(-1px)}
+.btn.ghost::before{display:none}
 .btn:hover{background:var(--pen);border-color:var(--pen)}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -292,7 +295,11 @@ footer .legal{grid-column:1/-1;margin:0;text-align:center;font:500 .95rem/1.8 va
 @media(max-width:760px){footer .wrap{grid-template-columns:1fr}}
 
 /* ---------- واتساب وإشعار ---------- */
-.wa-fab{position:fixed;inset-inline-end:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:.55rem;background:var(--wa);color:#fff;text-decoration:none;font:700 1.02rem var(--f-body);padding:.55rem 1.2rem;border-radius:999px;transition:background .15s}
+/* wa gloss */
+.wa-fab{position:fixed;inset-inline-end:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:.55rem;background:var(--wa);color:#fff;text-decoration:none;font:700 1.02rem var(--f-body);padding:.55rem 1.2rem;border-radius:999px;overflow:hidden;box-shadow:0 3px 10px rgba(27,127,70,.35);transition:background .15s,box-shadow .15s,transform .15s}
+.wa-fab::before{content:"";position:absolute;inset:0 0 50%;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,0))}
+.wa-fab:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(27,127,70,.4)}
+.wa-fab svg,.wa-fab span{position:relative;z-index:1}
 .wa-fab:hover{background:#166a3a}
 .wa-fab svg{width:1.4rem;height:1.4rem}
 @media(max-width:520px){.wa-fab span{display:none}.wa-fab{padding:.8rem}}
@@ -334,6 +341,7 @@ footer .legal{grid-column:1/-1;margin:0;text-align:center;font:500 .95rem/1.8 va
   .pathfig .pen{animation:none;stroke-dashoffset:0}
   .pathfig .flag,.pathfig .lab,.pathfig .medal{animation:none;opacity:1}
   .live i{animation:none}
-  .btn,.scn,.scn svg,.faq summary::after{transition:none}
+  .btn,.scn,.scn svg,.faq summary::after,.wa-fab{transition:none}
+  .btn:hover,.wa-fab:hover{transform:none}
 }
 @media print{.wa-fab,.top .nav,#toast{display:none}body{background:#fff}}

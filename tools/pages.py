@@ -76,11 +76,11 @@ def header(cur='', lang='ar', page='index.html'):
     en = lang == 'en'
     if en:
         nav = [('index.html','Home','home'),('about.html','About','about'),('tracks.html','Tracks and fees','tracks'),('policy.html','Policy','policy'),('privacy.html','Privacy','privacy'),('security.html','Security','security')]
-        cta, brand_word, company, aria_home, aria_nav = 'Start your request', 'Masar', CO_EN, f'{CO_EN} - Home', 'Main navigation'
+        cta, company, aria_home, aria_nav = 'Start your request', CO_EN, f'{CO_EN} - Home', 'Main navigation'
         sw = f'<a class="lang" href="../{page}" lang="ar" hreflang="ar" aria-label="التبديل إلى العربية">{GLOBE}<span>العربية</span></a>'
     else:
         nav = [('index.html','الرئيسية','home'),('about.html','من نحن','about'),('tracks.html','المسارات والرسوم','tracks'),('policy.html','سياستنا','policy'),('privacy.html','الخصوصية','privacy'),('security.html','الأمان','security')]
-        cta, brand_word, company, aria_home, aria_nav = 'ابدأ طلبك', 'مسار', CO, f'{CO} - الصفحة الرئيسية', 'التنقل الرئيسي'
+        cta, company, aria_home, aria_nav = 'ابدأ طلبك', CO, f'{CO} - الصفحة الرئيسية', 'التنقل الرئيسي'
         sw = f'<a class="lang" href="en/{page}" lang="en" hreflang="en" aria-label="Switch to English">{GLOBE}<span>English</span></a>'
     links = '\n    '.join(
         f'<a href="{h}"' + (' aria-current="page"' if cur == k else '') + f'>{ICONS[k]}<span>{t}</span></a>'
@@ -90,8 +90,7 @@ def header(cur='', lang='ar', page='index.html'):
     <a class="brand" href="index.html" aria-label="{aria_home}">
       {emblem(lang)}
       <span class="brand-text">
-        <span class="wordmark">{brand_word}<svg class="swoosh" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 6 H117"/></svg></span>
-        <span class="co">{company}</span>
+        <span class="wordmark">{company}<svg class="swoosh" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 6 H117"/></svg></span>
       </span>
     </a>
     <div class="top-actions">
@@ -256,7 +255,7 @@ def index():
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div>
-      <h1 id="h1">نوضّح لك الطريق قبل أن تبدأ، وقبل أن تدفع ثمن الخطأ</h1>
+      <h1 id="h1">الخبرة عندما تتحوّل إلى معرفة ويستفيد منها الآخرون، تصبح قيمة</h1>
       <p class="lead">استشارات وتوعية إرشادية من خبرة عملية ميدانية متراكمة، لأصحاب المشاريع الناشئة والمتعثرة والقائمة، ولمن يريد البناء أو التطوير العقاري. نُرشدك ونُشرف ونتابع، ولا ننفّذ بأنفسنا.</p>
       <span class="live"><i aria-hidden="true"></i>بث مباشر أونلاين</span>
       <div class="cta-row">

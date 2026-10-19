@@ -44,7 +44,7 @@ def index():
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div>
-      <h1 id="h1">We clarify the road before you start, and before a mistake costs you</h1>
+      <h1 id="h1">Experience, when it turns into knowledge that others benefit from, becomes value</h1>
       <p class="lead">Consulting and guidance from accumulated field experience, for owners of emerging, stalled and existing projects, and for anyone who wants to build or develop real estate. We guide, supervise and follow up, and we do not execute ourselves.</p>
       <span class="live"><i aria-hidden="true"></i>Live online broadcast</span>
       <div class="cta-row">
