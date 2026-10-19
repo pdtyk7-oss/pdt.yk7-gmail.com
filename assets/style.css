@@ -89,12 +89,12 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 
 /* ---------- البطل ---------- */
 .hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(3rem,6vw,5rem)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:.5rem clamp(1rem,3vw,3rem);align-items:start}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:.5rem clamp(1rem,3vw,3rem);align-items:stretch}
 .hero .card-title{grid-column:1 / -1}
-.hero .figcol{display:flex;flex-direction:column;gap:.8rem;align-self:stretch}
-.hero .figcol .pathfig{margin-top:0}
+.hero .figcol{display:flex;flex-direction:column;gap:.8rem;align-self:stretch;height:100%}
+.hero .figcol .pathfig{margin-top:0;flex:0 1 auto;min-height:0;max-height:21rem;width:100%;align-self:center}
 
-.hero-col{display:flex;flex-direction:column;gap:.8rem}
+.hero-col{display:flex;flex-direction:column;gap:.8rem;height:100%}
 .hero .card{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:clamp(1.1rem,2.6vw,1.8rem)}
 .hero .card-title{background:transparent;border:0;border-radius:0;padding:0;margin-bottom:.2rem}
 .hero .card-title h1{margin:0}
@@ -107,7 +107,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .lead{margin-top:1rem;max-width:34rem;font-size:1.06rem;color:#2a3558}
 .lead.close{font-weight:700;color:var(--ink)}
 .live{display:inline-flex;align-items:center;gap:.5rem;font:600 1rem var(--f-body)}
-.live-box{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:.7rem 1.1rem;text-align:center;justify-content:center;display:flex}
+.live-box{background:var(--sheet);border:1.5px solid var(--line-2);border-radius:var(--r);padding:.7rem 1.1rem;text-align:center;justify-content:center;display:flex;margin-top:auto}
 .live i{width:.7rem;height:.7rem;border-radius:50%;background:var(--red);display:inline-block;animation:blink 2.4s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem;margin-top:1.6rem}
