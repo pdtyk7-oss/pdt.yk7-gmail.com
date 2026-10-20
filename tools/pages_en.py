@@ -75,7 +75,7 @@ def index():
     <h2 id="role-h">Awareness, supervision and follow-up of the executing party</h2>
     <p class="sec-sub">“{CO_EN}” is a guidance and awareness body. Any execution service is carried out by an independent specialized party, under our supervision and follow-up as per the signed agreement.</p>
     <div class="role-grid">
-      <span class="stamp-big" aria-hidden="true">We supervise, we don’t execute</span>
+      <span class="stamp-big" aria-hidden="true">We supervise and follow up, we don’t execute</span>
       <div class="panel do frame">
         <h3>What we do</h3>
         <ul>
@@ -149,7 +149,7 @@ def about():
 </ul>'''),
      ('how', 'How we work', '''<p>We start by understanding the need, then analyze the situation and clarify the options. Throughout, we distinguish between four types of information: information that needs verification, technical or engineering information, regulatory or legal information, and a commercial recommendation. This way the client knows the nature of the information they rely on before making their decisions.</p>
 <p>We also recognize that the aim is not merely to provide a piece of information or an idea, but to help the client avoid mistakes and reach the right path so that they make a better decision.</p>'''),
-     ('limits', 'The limits of our role', f'''<div class="callout frame red"><b>We supervise, we don’t execute</b>The task of “{CO_EN}” is limited to awareness and clarifying the right and sound path to avoid potential risks, and supervision and follow-up as per the signed agreement. We do not carry out the work ourselves, ever. Any execution service is through the competent independent party, under our supervision and follow-up as per the agreement.</div>
+     ('limits', 'The limits of our role', f'''<div class="callout frame red"><b>We supervise and follow up, we don’t execute</b>The task of “{CO_EN}” is limited to awareness and clarifying the right and sound path to avoid potential risks, and supervision and follow-up as per the signed agreement. We do not carry out the work ourselves, ever. Any execution service is through the competent independent party, under our supervision and follow-up as per the agreement.</div>
 <p>We do not replace the engineering office and we do not practice licensed engineering work in its place. Professional service and consulting offices and the competent licensed bodies are independent specialized executing parties, and we guide the client to the suitable choice among them.</p>'''),
      ('mission', 'Our message and purpose', '''<p>Experience, once turned into knowledge that others benefit from, becomes value. We aim to pass on experience in a practical and simple way, and to help members of the community and project owners see the road more clearly before starting, during development, and when facing a stall.</p>'''),
      ('contact', 'Contact us', f'''<p>Address: {ADDR_EN}.</p><ul data-contact></ul><p><span data-legal></span></p>
