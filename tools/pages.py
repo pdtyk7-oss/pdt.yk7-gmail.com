@@ -276,8 +276,7 @@ def index():
 
 <section id="who" aria-labelledby="who-h">
   <div class="wrap">
-    <h2 id="who-h">أيّ هذه الجمل تشبه وضعك؟</h2>
-    <p class="sec-sub">اختر الأقرب إليك، وننقلك مباشرة إلى المسار المناسب في نموذج الطلب.</p>
+    <h2 id="who-h">اختر الأقرب إليك، وننقلك مباشرة إلى المسار المناسب في نموذج الطلب</h2>
     <div class="scn-list">{scn_html}</div>
   </div>
 </section>

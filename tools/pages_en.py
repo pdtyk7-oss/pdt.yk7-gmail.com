@@ -65,8 +65,7 @@ def index():
 
 <section id="who" aria-labelledby="who-h">
   <div class="wrap">
-    <h2 id="who-h">Which of these sentences sounds like your situation?</h2>
-    <p class="sec-sub">Choose the closest one and we take you straight to the right track in the request form.</p>
+    <h2 id="who-h">Choose the closest one and we take you straight to the right track in the request form</h2>
     <div class="scn-list">{scn_html}</div>
   </div>
 </section>
