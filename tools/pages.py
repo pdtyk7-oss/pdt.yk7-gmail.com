@@ -286,7 +286,7 @@ def index():
     <h2 id="role-h">دورنا محدد وواضح: توعية وإشراف، لا تنفيذ</h2>
     <p class="sec-sub">«{CO}» جهة إرشاد وتوعية. أي خدمة تنفيذية تتم عبر جهة مختصة مستقلة، وتحت إشرافنا ومتابعتنا حسب الاتفاق المبرم.</p>
     <div class="role-grid">
-      <span class="stamp-big" aria-hidden="true">نُشرف ولا ننفّذ</span>
+      <span class="stamp-big" aria-hidden="true"><span>نُشرف</span><span>ولا</span><span>ننفّذ</span></span>
       <div class="panel do frame">
         <h3>ما نقوم به</h3>
         <ul>
