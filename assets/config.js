@@ -6,8 +6,8 @@ window.CONFIG = {
   COMPANY: 'مسار المشاريع والتطوير',
   // الاسم الإنجليزي للنسخة الإنجليزية. تأكد من مطابقته للاسم المعتمد في سجلك التجاري.
   COMPANY_EN: 'Masar Projects and Development',
-  ADDRESS: 'حي هجر، المنطقة الشرقية، المملكة العربية السعودية',
-  ADDRESS_EN: 'Hajar District, Eastern Province, Saudi Arabia',
+  ADDRESS: 'الدمام، المنطقة الشرقية، المملكة العربية السعودية',
+  ADDRESS_EN: 'Dammam, Eastern Province, Saudi Arabia',
 
   // رقم واتساب بالصيغة الدولية بدون + أو أصفار، مثال: 9665XXXXXXXX
   WHATSAPP: '966559178666',

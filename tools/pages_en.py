@@ -10,7 +10,7 @@ ORG_EN = {
   "description": "Consulting and guidance with field experience for emerging projects, stalled projects, project development and real estate development, by live online broadcast.",
   "url": SITE + "/en/",
   "areaServed": "SA", "availableLanguage": "en",
-  "address": {"@type": "PostalAddress", "streetAddress": "Hajar District", "addressRegion": "Eastern Province", "addressCountry": "SA"},
+  "address": {"@type": "PostalAddress", "streetAddress": "Dammam", "addressRegion": "Eastern Province", "addressCountry": "SA"},
   "serviceType": ["Emerging Projects", "Project Development", "Stalled Projects", "Real Estate Development"]
 }
 
@@ -18,7 +18,7 @@ FAQ_EN = [
  ("Do you execute the project yourselves?", "No. Our task is awareness and clarifying the right path, plus supervision and follow-up as per the signed agreement. Any execution service is carried out by the competent independent party, under our supervision and follow-up."),
  ("Do you replace the engineering office or licensed bodies?", "No. We do not replace the engineering office and we do not practice licensed engineering work in its place. We help you define your need and choose the suitable office, then follow the path and supervise execution as per the agreement."),
  ("What if my idea is not suitable?", "If the idea is not suitable after the initial assessment in the first stage of the Emerging Projects track, we present three suitable alternatives."),
- ("Where are you based and how are the sessions held?", "We are based in the Hajar District, in the Eastern Province of Saudi Arabia, and sessions are held by live online broadcast, so you do not need to attend or travel."),
+ ("Where are you based and how are the sessions held?", "We are based in the Dammam, in the Eastern Province of Saudi Arabia, and sessions are held by live online broadcast, so you do not need to attend or travel."),
  ("When can I book my consultation?", "Booking opens only after the system confirms Moyasar received your payment. After paying, you are taken to the booking page where you choose a day and a time between 10:00 and 15:00 Mecca time. You get a Google Meet link on screen and by email if you entered one, and you can send it to us on WhatsApp."),
  ("How do I pay, and are all stages paid on the site?", "The fees of the fixed-fee stages are paid through an electronic invoice on the approved Moyasar page, showing your details, the service and the amount. Once the payment is confirmed, booking your consultation opens. Stages marked “as per agreement” or “as per contract” are not paid on the site; we contact you to define the scope of work and the fees, and then an agreement is signed."),
  ("Do you store my card or my data?", "Your card number never passes through our site, because payment is made on the Moyasar page. The site does not keep a database of requests. The details are on the privacy and security pages."),
@@ -136,7 +136,7 @@ def index():
 def about():
     sea = '<svg viewBox="0 0 84 68" aria-hidden="true"><path class="pin" d="M42 38 C34 28 32 24 32 19 A10 10 0 0 1 52 19 C52 24 50 28 42 38 Z"/><circle cx="42" cy="19" r="3.5" fill="#fff" stroke="none"/><path class="sea" d="M4 52 H80"/><path class="sea" d="M14 60 H70"/></svg>'
     secs = [
-     ('who', 'About us', f'''<p>{CO_EN} is based in the Hajar District, in the Eastern Province of Saudi Arabia. It is a platform that aims to contribute consulting, experience and awareness guidance to a segment of the community, drawing on accumulated practical and field experience in several fields.</p>
+     ('who', 'About us', f'''<p>{CO_EN} is based in the Dammam, in the Eastern Province of Saudi Arabia. It is a platform that aims to contribute consulting, experience and awareness guidance to a segment of the community, drawing on accumulated practical and field experience in several fields.</p>
 <p>We help individuals and owners of emerging projects, develop existing and stalled projects, and accompany real estate developers, so that we see the road more clearly before starting and know the right path in a practical and simple way.</p>
 <div class="place">{sea}<span>{ADDR_EN}. Sessions are held by live online broadcast.</span></div>'''),
      ('what', 'What we offer', '''<p>Consulting with us is not merely referring the client to advisers and specialists. The core awareness and guidance is provided by us from our practical and field experience. When a matter requires a specific specialization or license, we make the client aware of what they need, who they need and when they need them, using specialists and licensed bodies in the technical, engineering, regulatory and legal fields and in government departments.</p>
