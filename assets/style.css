@@ -53,13 +53,15 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 /* ---------- رأس الصفحة ---------- */
 .top{display:block;padding-block:.9rem 0}
 .top-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.5rem}
-.brand{display:flex;align-items:center;gap:1.1rem;text-decoration:none;color:var(--ink)}
-.emblem{width:7.6rem;height:7.6rem;flex:none}
-.brand-text{display:flex;flex-direction:column;align-items:flex-start}
-.wordmark{position:relative;display:inline-block;font:900 2.3rem/1.25 var(--f-head);padding-bottom:.8rem;max-width:17rem;text-wrap:balance}
+.brand{display:flex;align-items:flex-end;gap:1.1rem;text-decoration:none;color:var(--ink)}
+.emblem{width:7.6rem;height:7.6rem;flex:none;filter:drop-shadow(0 4px 10px rgba(22,34,74,.22)) drop-shadow(0 1px 0 rgba(255,255,255,.6))}
+.brand-text{display:flex;flex-direction:column;align-items:flex-start;padding-bottom:.35rem;margin-top:1.1rem}
+.wordmark{position:relative;display:inline-block;font:900 2.3rem/1.25 var(--f-head);padding-bottom:.8rem;max-width:17rem;text-wrap:balance;
+  background:linear-gradient(180deg,#2E4C9E 0%,var(--ink) 55%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-fill-color:transparent;text-shadow:0 1px 0 rgba(255,255,255,.35);filter:drop-shadow(0 2px 4px rgba(22,34,74,.18))}
 :lang(ar) .wordmark{max-width:none}
 .swoosh{position:absolute;inset-inline:-.2rem;bottom:-.05rem;width:calc(100% + .4rem);height:.7rem;overflow:visible}
-.swoosh path{fill:none;stroke:var(--sun);stroke-width:3.5;stroke-linecap:round}
+.swoosh path{fill:none;stroke:url(#swoosh-grad,var(--sun));stroke:var(--sun);stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 1px 2px rgba(247,165,27,.5))}
 .top-actions{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
 .nav{display:flex;flex-wrap:wrap;align-items:stretch;gap:.2rem .5rem;margin-top:.9rem;padding:.55rem 0 .7rem;border-top:1.5px solid var(--line-2);border-bottom:2px solid var(--ink)}
 .nav a{position:relative;display:flex;align-items:center;gap:.55rem;padding:.45rem .95rem;color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem;border-radius:var(--r-sm)}
