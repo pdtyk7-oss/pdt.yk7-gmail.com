@@ -72,7 +72,7 @@ def index():
 
 <section class="role" id="role" aria-labelledby="role-h">
   <div class="wrap">
-    <h2 id="role-h">Our role is clear and limited: awareness and supervision, not execution</h2>
+    <h2 id="role-h">Awareness, supervision and follow-up of the executing party</h2>
     <p class="sec-sub">“{CO_EN}” is a guidance and awareness body. Any execution service is carried out by an independent specialized party, under our supervision and follow-up as per the signed agreement.</p>
     <div class="role-grid">
       <span class="stamp-big" aria-hidden="true">We supervise, we don’t execute</span>
