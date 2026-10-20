@@ -111,13 +111,6 @@ def index():
   </div>
 </section>
 
-<section class="quote" aria-label="Our message">
-  <div class="wrap">
-    <blockquote>Experience, once turned into knowledge that others benefit from, becomes value.</blockquote>
-    <p>We aim to pass on experience in a practical and simple way, and to help members of the community and project owners see the road more clearly before starting, during development, and when facing a stall. <a href="about.html">Learn more about us</a>.</p>
-  </div>
-</section>
-
 <section class="start" id="start" aria-labelledby="start-h">
   <div class="wrap">
     <h2 id="start-h">Start your request in four steps</h2>

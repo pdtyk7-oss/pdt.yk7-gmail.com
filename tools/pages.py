@@ -322,13 +322,6 @@ def index():
   </div>
 </section>
 
-<section class="quote" aria-label="رسالتنا">
-  <div class="wrap">
-    <blockquote>الخبرة عندما تتحول إلى معرفة ويستفيد منها الآخرون، تصبح قيمة.</blockquote>
-    <p>نسعى إلى نقل الخبرة بصورة عملية ومبسطة، ومساعدة أفراد المجتمع وأصحاب المشاريع على رؤية الطريق بصورة أوضح قبل البدء، وأثناء التطوير، وعند مواجهة التعثر. <a href="about.html">تعرّف علينا أكثر</a>.</p>
-  </div>
-</section>
-
 <section class="start" id="start" aria-labelledby="start-h">
   <div class="wrap">
     <h2 id="start-h">ابدأ طلبك في أربع خطوات</h2>
