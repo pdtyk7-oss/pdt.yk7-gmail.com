@@ -59,7 +59,7 @@ section{padding-block:clamp(3.2rem,7vw,5.5rem);position:relative}
 .wordmark{position:relative;display:inline-block;font:900 2.3rem/1.25 var(--f-head);padding-bottom:.8rem;max-width:17rem;text-wrap:balance;color:var(--ink)}
 :lang(ar) .wordmark{max-width:none}
 .swoosh{position:absolute;inset-inline:-.2rem;bottom:-.05rem;width:calc(100% + .4rem);height:.7rem;overflow:visible}
-.swoosh path{fill:none;stroke:url(#swoosh-grad,var(--sun));stroke:var(--sun);stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 1px 2px rgba(247,165,27,.5))}
+.swoosh path{fill:none;stroke:var(--sun);stroke-width:4;stroke-linecap:round}
 .top-actions{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
 .nav{display:flex;flex-wrap:wrap;align-items:stretch;gap:.2rem .5rem;margin-top:.9rem;padding:.55rem 0 .7rem;border-top:1.5px solid var(--line-2);border-bottom:2px solid var(--ink)}
 .nav a{position:relative;display:flex;align-items:center;gap:.55rem;padding:.45rem .95rem;color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem;border-radius:var(--r-sm)}
