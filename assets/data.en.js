@@ -65,7 +65,7 @@ const TRACKS = [
    stages:[
     {id:'r1', name:'Preliminary consultation before construction', fee:2000,
      items:['Defining the purpose of the project or construction','Budget and capital','Regulations and requirements','Studying options and initial costs','Defining the suitable path for the project']},
-    {id:'r2', name:'Design, planning and issuing the plans', fee:3000, feeNote:'Does not include the engineering office fees',
+    {id:'r2', name:'Design, planning and issuing the plans', fee:5000, feeNote:'Does not include the engineering office fees',
      lead:'We guide you and suggest useful additions before the plan is issued, based on field experience.',
      items:['Choosing the suitable engineering office','Architectural plans','Structural plans','Mechanical plans','Air-conditioning plans','Interior design and decor','Reviewing the plans\u2019 fit with your needs and budget']},
     {id:'r3', name:'Licenses and regulatory procedures', fee:2000, feeNote:'Does not include government fees',

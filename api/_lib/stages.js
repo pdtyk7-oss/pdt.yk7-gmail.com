@@ -87,7 +87,7 @@ module.exports = {
     "name": "التصميم والتخطيط وإصدار المخططات",
     "track_en": "Real Estate Development",
     "name_en": "Design, planning and issuing the plans",
-    "fee": 3000,
+    "fee": 5000,
     "altFee": null
   },
   "r3": {
