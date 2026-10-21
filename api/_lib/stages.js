@@ -79,7 +79,7 @@ module.exports = {
     "name": "الاستشارة التمهيدية قبل البناء",
     "track_en": "Real Estate Development",
     "name_en": "Preliminary consultation before construction",
-    "fee": 2000,
+    "fee": 3000,
     "altFee": null
   },
   "r2": {
@@ -95,7 +95,7 @@ module.exports = {
     "name": "التراخيص والإجراءات النظامية",
     "track_en": "Real Estate Development",
     "name_en": "Licenses and regulatory procedures",
-    "fee": 2000,
+    "fee": 3000,
     "altFee": null
   },
   "r4": {
