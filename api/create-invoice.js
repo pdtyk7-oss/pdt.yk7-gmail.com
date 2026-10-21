@@ -42,7 +42,8 @@ module.exports = endpoint('POST', async (req) => {
   const lang = body.lang === 'en' ? 'en' : 'ar';
   const prefix = lang === 'en' ? '/en' : '';
   const useAlt = Boolean(body.alt) && stage.altFee != null;
-  const amount = Math.round((useAlt ? stage.altFee : stage.fee) * (1 + vatPercent() / 100) * 100);   // halalas
+  const baseAmount = useAlt ? stage.fee + stage.altFee : stage.fee;   // the idea fee is added to the consultation fee
+  const amount = Math.round(baseAmount * (1 + vatPercent() / 100) * 100);   // halalas
   const ref = newRef();
 
   const payload = {

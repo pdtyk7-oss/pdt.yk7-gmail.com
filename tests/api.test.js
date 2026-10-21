@@ -43,7 +43,7 @@ test('create-invoice: Arabic customers return to the Arabic booking page', async
   const backend = setup(t);
   const { body } = await call(createInvoice, { method: 'POST', body: { ...CUSTOMER, stage: 's1', alt: true, lang: 'ar' } });
   assert.match(body.url, /lang=ar/);
-  assert.equal(backend.state.invoices[0].amount, 200000);                // the "idea from the platform" fee
+  assert.equal(backend.state.invoices[0].amount, 300000);                // consultation 1000 + idea 2000 = 3000
   assert.match(backend.state.invoices[0].success_url, /\/booking\.html\?ref=/);
   assert.ok(!backend.state.invoices[0].success_url.includes('/en/'));
 });

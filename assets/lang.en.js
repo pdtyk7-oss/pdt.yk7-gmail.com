@@ -28,7 +28,7 @@ const T = {
   s1:{title:'Which track fits your situation?', hint:'Choose one track. You can change it later.', aria:'Track', err:'Choose a track to continue.'},
   s2:{title:'Which stage do you want to start with?', aria:'Stage', err:'Choose a stage to continue.',
       hint:n=>`Track: “${n}”. If you are not sure, start with the first stage. Stages marked “as per agreement” are not paid on the site; we will contact you to define them.`},
-  altChk:(label, alt, base)=>`${label}. The stage fee becomes <b>${alt}</b> instead of ${base}.`,
+  altChk:(label, base, alt, total)=>`${label}. ${alt} is added to the ${base} consultation fee, so the total becomes <b>${total}</b>.`,
   s3:{title:'Your details and a summary of your project', hint:'Your details appear on the invoice and are used to contact you. The site keeps no copy of them.', honeypot:'Leave this field empty'},
   s4:{title:'Review your request before continuing', track:'Track', stage:'Stage', note:'Note', name:'Name', mobile:'Mobile', fee:'Fee',
       vatLine:p=>`VAT (${p}%)`, amount:'Amount',

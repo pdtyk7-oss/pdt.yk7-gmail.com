@@ -72,7 +72,7 @@ const blank = () => ({name:'',phone:'',email:'',city:'',capital:'',summary:''});
 const S = { step:1, track:null, stage:null, alt:false, data:blank(), agree1:false, agree2:false, errors:{}, busy:false, done:null };
 const trackOf = () => TRACKS.find(t=>t.id===S.track);
 const stageOf = () => { const t=trackOf(); return t && t.stages.find(s=>s.id===S.stage); };
-const baseFee = () => { const st=stageOf(); if(!st||st.fee==null) return null; return (st.alt && S.alt) ? st.alt.fee : st.fee; };
+const baseFee = () => { const st=stageOf(); if(!st||st.fee==null) return null; return (st.alt && S.alt) ? st.fee + st.alt.fee : st.fee; };
 const vatPct  = () => Number(CONFIG.VAT_PERCENT)||0;
 const totalFee = () => { const b=baseFee(); return b==null ? null : Math.round(b*(1+vatPct()/100)*100)/100; };
 const cleanPhone = p => toLatinDigits(p).replace(/[\s\-()]/g,'');
@@ -101,7 +101,7 @@ function step2(){
     return `<label class="opt"><input type="radio" name="stage" value="${st.id}" ${S.stage===st.id?'checked':''}><span class="box"><span><strong>${esc(st.name)}</strong>${note}</span>${price}</span></label>`;
   }).join('');
   const st=stageOf();
-  const alt = (st && st.alt) ? `<label class="altchk"><input type="checkbox" id="alt" ${S.alt?'checked':''}><span>${T.altChk(esc(st.alt.label), T.money(st.alt.fee), T.money(st.fee))}</span></label>` : '';
+  const alt = (st && st.alt) ? `<label class="altchk"><input type="checkbox" id="alt" ${S.alt?'checked':''}><span>${T.altChk(esc(st.alt.label), T.money(st.fee), T.money(st.alt.fee), T.money(st.fee + st.alt.fee))}</span></label>` : '';
   return `<h3 tabindex="-1" id="wz-h">${T.s2.title}</h3>
   <p class="hint">${T.s2.hint(esc(t.name))}</p>
   <div class="opts" role="radiogroup" aria-label="${T.s2.aria}">${rows}</div>${alt}
